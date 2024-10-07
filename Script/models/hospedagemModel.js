@@ -30,7 +30,7 @@ const Quarto = conn.define(
         type: DataTypes.DECIMAL(10, 2), 
         allowNull: false,
       },
-      status: {
+      situacao: {
         type: DataTypes.ENUM('disponível', 'reservado', 'em manutenção'),
         defaultValue: 'disponível',
       },
@@ -43,3 +43,7 @@ const Quarto = conn.define(
     });
 
 export default Quarto;
+
+
+
+
