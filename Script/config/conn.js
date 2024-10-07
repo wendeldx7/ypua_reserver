@@ -1,20 +1,8 @@
-import mysql from "mysql2";
+import { Sequelize } from "sequelize";
 
-const conn = mysql.createPool({
-  connectionLimit: 10,
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQL_PORT,
+const conn = new Sequelize("ypua_reserver", "root", "Sen@iDev77!.", {
+  host: "localhost",
+  dialect: "mysql",
 });
 
-conn.query("Select 1 + 1 AS solution", (err, result, fields) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log("The solution is: ", result[0].solution);
-  });
-  
-  export default conn;
+export default conn

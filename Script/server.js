@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import conn from "./config/conn.js";
 
+import "./models/hospedagemModel.js";
+import hospedagensRouter from "./routes/hospedagensRoutes.js";
 
 const app = express();
 
@@ -24,10 +26,11 @@ app.get("/", (req, res) => {
   res.send("Olá, Mundo!");
 });
 
+app.use("/quartos", hospedagensRouter);
 
 app.use((request, response) => {
-    response.status(404).json({ message: "Rota nao encontrada" });
-  });
+  response.status(404).json({ message: "Rota nao encontrada" });
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta: ${PORT}`);
