@@ -1,4 +1,4 @@
-import quarto from "../models/hospedagemModel.js"
+import Quarto from "../models/hospedagemModel.js"
 
 
 export const getQuartos = async (request, response) => {
@@ -6,7 +6,7 @@ export const getQuartos = async (request, response) => {
   const limit = parseInt(request.query.limit) || 10;
   const offset = (page - 1) * 10;
   try {
-    const quartos = await quarto.findAndCountAll({
+    const quartos = await Quarto.findAndCountAll({
       limit,
       offset,
     });
