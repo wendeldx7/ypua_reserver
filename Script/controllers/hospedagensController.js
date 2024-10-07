@@ -27,5 +27,33 @@ export const getQuartos = async (request, response) => {
     response.status(500).json({ error: "erro ao buscar quartos" });
   }
 };
+
+export const createRoom = async (request, response) => {
+  const { quarto,
+    tipo,
+    descricao,
+    capacidade,
+    precoPorNoite,
+    situacao,
+    facilidades } = request.body;
+  
+  const newRoom = {
+    quarto,
+    tipo,
+    descricao,
+    capacidade,
+    precoPorNoite,
+    situacao,
+    facilidades
+  }
+   try {
+     await Quarto.create(newRoom);
+     response.status(201).json({ message: "Quarto criado com sucesso" });
+   } catch (error) {
+     console.error(error);
+     response.status(500).json({ error: "Erro ao criar o quarto" });
+   }
+}
+
   
 
