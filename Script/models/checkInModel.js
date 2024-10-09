@@ -1,8 +1,9 @@
 import conn from "../config/conn.js";
 import { DataTypes } from "sequelize";
+import Quarto from "./hospedagemModel.js";
 
 const CheckIn = conn.define(
-  "CheckIn",
+  "Checkin",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,11 +12,11 @@ const CheckIn = conn.define(
       allowNull: false,
     },
     checkInData: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     checkOutData: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     adultos: {
@@ -25,9 +26,10 @@ const CheckIn = conn.define(
       validate: {
         min: {
           args: 1,
-          message: "É necessário pelo menos 1 adulto para realização do check-in."
-        }
-      }
+          message:
+            "É necessário pelo menos 1 adulto para realização do check-in.",
+        },
+      },
     },
     criancas: {
       type: DataTypes.INTEGER,
@@ -41,9 +43,16 @@ const CheckIn = conn.define(
     },
   },
   {
-    tableName: "quartos",
+    tableName: "checkin",
     timestamps: true,
   }
 );
 
-export default Quarto;
+Quarto.hasMany(CheckIn, {
+  foreignKey: "id",
+});
+CheckIn.belongsTo(Quarto, {
+  foreignKey: "id",
+});
+
+export default CheckIn;
