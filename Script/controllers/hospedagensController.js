@@ -1,8 +1,7 @@
-import Quarto from "../models/hospedagemModel.js"
-
+import Quarto from "../models/hospedagemModel.js";
 
 export const getQuartos = async (request, response) => {
-    const page = parseInt(request.query.page) || 1;
+  const page = parseInt(request.query.page) || 1;
   const limit = parseInt(request.query.limit) || 10;
   const offset = (page - 1) * 10;
   try {
@@ -29,14 +28,16 @@ export const getQuartos = async (request, response) => {
 };
 
 export const createRoom = async (request, response) => {
-  const { quarto,
+  const {
+    quarto,
     tipo,
     descricao,
     capacidade,
     precoPorNoite,
     situacao,
-    facilidades } = request.body;
-  
+    facilidades,
+  } = request.body;
+
   const newRoom = {
     quarto,
     tipo,
@@ -44,16 +45,25 @@ export const createRoom = async (request, response) => {
     capacidade,
     precoPorNoite,
     situacao,
-    facilidades
+    facilidades,
+  };
+  try {
+    await Quarto.create(newRoom);
+    response.status(201).json({ message: "Quarto criado com sucesso" });
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: "Erro ao criar o quarto" });
   }
-   try {
-     await Quarto.create(newRoom);
-     response.status(201).json({ message: "Quarto criado com sucesso" });
-   } catch (error) {
-     console.error(error);
-     response.status(500).json({ error: "Erro ao criar o quarto" });
-   }
-}
+};
 
-  
-
+export const checkIn = async (request, response) => {
+  const {
+    quarto,
+    tipo,
+    descricao,
+    capacidade,
+    precoPorNoite,
+    situacao,
+    facilidades,
+  } = request.body;
+};
