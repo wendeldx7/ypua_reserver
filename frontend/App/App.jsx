@@ -1,8 +1,14 @@
-import react from 'react'
+import react from "react";
+import "../App/App.css"
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import NavBar from "../Components/NavBar";
 
+const App = () => {
+  return (
 
-function App() {
-  return (<h1>Pagina inicial</h1>)
-}
+    <NavBar />
 
-export default App
+  );
+};
+
+export default App;
