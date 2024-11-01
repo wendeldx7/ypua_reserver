@@ -4,7 +4,7 @@ import { DataTypes } from "sequelize";
 const Quarto = conn.define(
   "quartos",
   {
-    id: {
+    quartoId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -43,7 +43,3 @@ const Quarto = conn.define(
     });
 
 export default Quarto;
-
-
-
-
