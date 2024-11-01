@@ -5,7 +5,7 @@ import Quarto from "./hospedagemModel.js";
 const CheckIn = conn.define(
   "Checkin",
   {
-    CheckId: {
+    checkId: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
@@ -40,6 +40,10 @@ const CheckIn = conn.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0,
+    },
+    precoTotal: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
     },
   },
   {
