@@ -1,24 +1,53 @@
-import styled from "styled-components";
-import { NavbarContainer, NavItem, NavLink } from "../Styles/NavbarStyled.js";
+import React from "react";
+import {
+  NavbarContainer,
+  NavItem,
+  NavLink,
+  Divlink,
+  LogoLink,
+} from "../Styles/NavbarStyled.js";
+import Logo from "../Image/logo.png"; // Caminho correto para a logo
+import Lupa from "../Image/lupa.png"
+import Perfil from "../Image/perfil.png"
+import Notificacao from "../Image/notificacao.png"
 
 const NavBar = () => {
   return (
-    <>
-      <NavbarContainer>
+    <NavbarContainer>
+      {/* Logo como Link */}
+      <LogoLink to="/">
+        <img src={Logo} alt="Logo" />
+      </LogoLink>
+
+      {/* Links de Navegação */}
+      <Divlink>
         <NavItem>
-          <NavLink href="/INÍCIO">INÍCIO</NavLink>
+          <NavLink to="/INÍCIO" activeClassName="active">
+            INÍCIO
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/about">CHECK-IN</NavLink>
+          <NavLink to="/about" activeClassName="active">
+            CHECK-IN
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/services">RESERVAS</NavLink>
+          <NavLink to="/services" activeClassName="active">
+            RESERVAS
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/contact">PAINEL</NavLink>
+          <NavLink to="/contact" activeClassName="active">
+            PAINEL
+          </NavLink>
         </NavItem>
-      </NavbarContainer>
-    </>
+      </Divlink>
+      <NavItem> 
+          
+
+      </NavItem>
+    </NavbarContainer>
   );
 };
-export default NavBar
+
+export default NavBar;
