@@ -1,9 +1,54 @@
-import React from "react";
+// HomePage.jsx
+import React, { useState } from "react";
+import { Title, ImageContainer, Image, Button } from "../Styles/HomePageStyled.js";
 
-const HomePage = ()=>{
-    return(
-        <><h1>minha pagina home</h1></>
-    )
-}
+// Importando as imagens do carrossel
+import Img1 from "../Image/CarrosselHome/background1.png";
+import Img2 from "../Image/CarrosselHome/background2.png";
+import Img3 from "../Image/CarrosselHome/background3.png";
 
-export default HomePage
+// Importando as setas como imagens
+import SetasEsquerda from "../Image/SetasCarrossel/Esquerda.png";
+import SetasDireita from "../Image/SetasCarrossel/Direita.png";
+
+const imagens = [Img1, Img2, Img3];
+
+const HomePage = () => {
+  const [indiceAtual, setIndiceAtual] = useState(0);
+
+  // Função para passar para a próxima imagem
+  const passarImagem = () => {
+    setIndiceAtual((indiceAnterior) => (indiceAnterior + 1) % imagens.length);
+  };
+
+  // Função para voltar para a imagem anterior
+  const voltarImagem = () => {
+    setIndiceAtual(
+      (indiceAnterior) =>
+        indiceAnterior === 0 ? imagens.length - 1 : indiceAnterior - 1
+    );
+  };
+
+  return (
+    <>
+      <Title>Bem vindo ao sistema de reservas Ypuã</Title>
+      <ImageContainer>
+        <Image src={imagens[indiceAtual]} alt="Imagem do sistema Ypuã" />
+        <Button
+          src={SetasEsquerda}
+          alt="Voltar"
+          direction="prev"
+          onClick={voltarImagem}
+        />
+        <Button
+          src={SetasDireita}
+          alt="Passar"
+          direction="next"
+          onClick={passarImagem}
+        />
+      </ImageContainer>
+    </>
+  );
+};
+
+export default HomePage;
