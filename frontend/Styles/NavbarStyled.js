@@ -27,6 +27,47 @@ export const LogoLink = styled(Link)`
   }
 `;
 
+export const LupaLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 30px;
+    width: 30px;
+    transition: transform 0.3s;
+  }
+  &:hover {
+    opacity: 50%;
+    transition: 0.3s;
+  }
+`;
+export const PerfilLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 40px;
+    width: 40px;
+    transition: transform 0.3s;
+  }
+`;
+export const NotificacaoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 35px;
+    width: 35px;
+    transition: transform 0.3s;
+  }
+`;
+
+export const OpcoesLink = styled(Link)`
+  width: 200px;
+  height: auto;
+  
+`;
+
 export const NavItem = styled.div`
   //* Cada item de navegação seja a logo, os icones ou os links, ela deve encobrir os links
   list-style: none;
