@@ -14,15 +14,12 @@ import Notificacao from "../Image/notificacao.png"
 const NavBar = () => {
   return (
     <NavbarContainer>
-      {/* Logo como Link */}
       <LogoLink to="/">
         <img src={Logo} alt="Logo" />
       </LogoLink>
-
-      {/* Links de Navegação */}
       <Divlink>
         <NavItem>
-          <NavLink to="/INÍCIO" activeClassName="active">
+          <NavLink to="/" activeClassName="active">
             INÍCIO
           </NavLink>
         </NavItem>
