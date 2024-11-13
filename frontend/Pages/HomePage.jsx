@@ -1,6 +1,12 @@
 // HomePage.jsx
 import React, { useState } from "react";
-import { Title, ImageContainer, Image, Button } from "../Styles/HomePageStyled.js";
+import {
+  Title,
+  ImageContainer,
+  Image,
+  Button,
+  TituloImg,
+} from "../Styles/HomePageStyled.js";
 
 // Importando as imagens do carrossel
 import Img1 from "../Image/CarrosselHome/background1.png";
@@ -23,9 +29,8 @@ const HomePage = () => {
 
   // Função para voltar para a imagem anterior
   const voltarImagem = () => {
-    setIndiceAtual(
-      (indiceAnterior) =>
-        indiceAnterior === 0 ? imagens.length - 1 : indiceAnterior - 1
+    setIndiceAtual((indiceAnterior) =>
+      indiceAnterior === 0 ? imagens.length - 1 : indiceAnterior - 1
     );
   };
 
@@ -33,7 +38,17 @@ const HomePage = () => {
     <>
       <Title>Bem vindo ao sistema de reservas Ypuã</Title>
       <ImageContainer>
+        {/* Título sobreposto à imagem */}
+        <TituloImg>
+          Descubra o refúgio perfeito: <br/>
+          conforto, tranquilidade e natureza em
+          harmonia. Bem-vindo à sua nova casa longe de casa.
+        </TituloImg>
+
+        {/* Imagem de fundo */}
         <Image src={imagens[indiceAtual]} alt="Imagem do sistema Ypuã" />
+
+        {/* Botões de navegação */}
         <Button
           src={SetasEsquerda}
           alt="Voltar"

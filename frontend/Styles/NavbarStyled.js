@@ -11,6 +11,8 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   height: 100px;
   position: sticky;
+
+  z-index: 10; // Valor alto para manter a navbar acima do conteúdo
   top: 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
 `;
@@ -30,6 +32,7 @@ export const LogoLink = styled(Link)`
 export const LupaLink = styled(Link)`
   display: flex;
   align-items: center;
+  margin-right: 30px;
 
   img {
     height: 30px;
@@ -44,26 +47,38 @@ export const LupaLink = styled(Link)`
 export const PerfilLink = styled(Link)`
   display: flex;
   align-items: center;
+  margin-right: 30px;
 
   img {
     height: 40px;
     width: 40px;
     transition: transform 0.3s;
   }
+  &:hover {
+    opacity: 50%;
+    transition: 0.3s;
+  }
 `;
 export const NotificacaoLink = styled(Link)`
   display: flex;
   align-items: center;
+
 
   img {
     height: 35px;
     width: 35px;
     transition: transform 0.3s;
   }
+  &:hover {
+    opacity: 50%;
+    transition: 0.3s;
+  }
 `;
 
 export const OpcoesLink = styled(Link)`
-  width: 200px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
   height: auto;
   
 `;
