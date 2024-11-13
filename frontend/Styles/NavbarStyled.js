@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { NavLink as RouterNavLink } from "react-router-dom"; // Rename import to avoid conflicts
-import { Link } from "react-router-dom"; // Navegação com React Router
+import { NavLink as RouterNavLink } from "react-router-dom"; 
+import { Link } from "react-router-dom"; 
 
 export const NavbarContainer = styled.nav`
   //*Container principal da navbar
@@ -11,8 +11,7 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   height: 100px;
   position: sticky;
-
-  z-index: 10; // Valor alto para manter a navbar acima do conteúdo
+  z-index: 10; 
   top: 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
 `;
@@ -32,7 +31,7 @@ export const LogoLink = styled(Link)`
 export const LupaLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 60px;
 
   img {
     height: 30px;
@@ -47,11 +46,11 @@ export const LupaLink = styled(Link)`
 export const PerfilLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 60px;
 
   img {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     transition: transform 0.3s;
   }
   &:hover {
@@ -65,8 +64,8 @@ export const NotificacaoLink = styled(Link)`
 
 
   img {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     transition: transform 0.3s;
   }
   &:hover {
@@ -76,7 +75,7 @@ export const NotificacaoLink = styled(Link)`
 `;
 
 export const OpcoesLink = styled(Link)`
-  width: 50px;
+  width: 40px;
   display: flex;
   justify-content: center;
   height: auto;
@@ -124,7 +123,7 @@ export const NavLink = styled(RouterNavLink)`
     &::before {
       visibility: visible;
       width: 100%;
-      background-color: #d2ae6d; // Cor verde para o link ativo
+      background-color: #d2ae6d;
     }
   }
 `;
