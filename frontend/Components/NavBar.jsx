@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { NavbarContainer, NavItem, NavLink } from "../Styles/NavbarStyled.js";
+import { NavbarContainer, NavItem, NavLink } from "../Styles/NavbarStyled.js"
+
 
 const NavBar = () => {
   return (
@@ -12,7 +13,7 @@ const NavBar = () => {
           <NavLink href="/about">CHECK-IN</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/services">RESERVAS</NavLink>
+          <NavLink href="">RESERVAS</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/contact">PAINEL</NavLink>
