@@ -10,7 +10,7 @@ import {
   LupaLink,
   OpcoesLink,
 } from "../Styles/NavbarStyled.js";
-import Logo from "../Image/logo.png"; // Caminho correto para a logo
+import Logo from "../Image/logo.png"; 
 import Lupa from "../Image/lupa.png";
 import Perfil from "../Image/perfil.png";
 import Notificacao from "../Image/notificacao.png";
