@@ -75,3 +75,13 @@ export const TituloImg = styled.h1`
   z-index: 10; // Garante que o título fique acima da imagem
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // Adiciona uma sombra para melhorar a visibilidade
 `;
+
+export const Aspas = styled.h1`
+  font-size: 100px;
+  color: #D2AE6D;
+  position: absolute; // Permite que o título fique sobreposto à imagem
+  top: 50%; // Posiciona o título no meio da imagem verticalmente
+  left: 50%; // Posiciona o título no meio da imagem horizontalmente
+  transform: translate(-80%, -80%); // Centraliza o título
+  z-index: 10; // Garante que o título fique acima da imagem
+`
