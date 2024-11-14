@@ -5,6 +5,7 @@ import {
   Image,
   Button,
   TituloImg,
+  Aspas
 } from "../Styles/HomePageStyled.js";
 
 import Img1 from "../Image/CarrosselHome/background1.png";
@@ -36,6 +37,7 @@ const HomePage = () => {
       <Title>Bem vindo ao sistema de reservas Ypuã</Title>
       <ImageContainer>
         <TituloImg>
+          <Aspas>"</Aspas>
           Descubra o refúgio perfeito: <br/>
           conforto, tranquilidade e natureza em
           harmonia. Bem-vindo à sua nova casa longe de casa.

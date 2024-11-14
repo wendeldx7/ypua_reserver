@@ -47,7 +47,7 @@ const NavBar = () => {
         <LupaLink to="/">
           <img src={Lupa} alt="Lupa" />
         </LupaLink>
-        <PerfilLink to="/">
+        <PerfilLink to="/"> 
           <img src={Perfil} alt="Perfil" />
         </PerfilLink>
         <NotificacaoLink to="/">
