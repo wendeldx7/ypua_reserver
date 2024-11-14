@@ -1,25 +1,61 @@
-import styled from "styled-components";
-import { NavbarContainer, NavItem, NavLink } from "../Styles/NavbarStyled.js"
-
+import React from "react";
+import {
+  NavbarContainer,
+  NavItem,
+  NavLink,
+  Divlink,
+  LogoLink,
+  PerfilLink,
+  NotificacaoLink,
+  LupaLink,
+  OpcoesLink,
+} from "../Styles/NavbarStyled.js";
+import Logo from "../Image/logo.png"; 
+import Lupa from "../Image/lupa.png";
+import Perfil from "../Image/perfil.png";
+import Notificacao from "../Image/notificacao.png";
 
 const NavBar = () => {
   return (
-    <>
-      <NavbarContainer>
+    <NavbarContainer>
+      <LogoLink to="/">
+        <img src={Logo} alt="Logo" />
+      </LogoLink>
+      <Divlink>
         <NavItem>
-          <NavLink href="/INÍCIO">INÍCIO</NavLink>
+          <NavLink to="/" activeClassName="active">
+            INÍCIO
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/about">CHECK-IN</NavLink>
+          <NavLink to="/about" activeClassName="active">
+            CHECK-IN
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="">RESERVAS</NavLink>
+          <NavLink to="/services" activeClassName="active">
+            RESERVAS
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/contact">PAINEL</NavLink>
+          <NavLink to="/contact" activeClassName="active">
+            PAINEL
+          </NavLink>
         </NavItem>
-      </NavbarContainer>
-    </>
+      </Divlink>
+      <OpcoesLink>
+        <LupaLink to="/">
+          <img src={Lupa} alt="Lupa" />
+        </LupaLink>
+        <PerfilLink to="/"> 
+          <img src={Perfil} alt="Perfil" />
+        </PerfilLink>
+        <NotificacaoLink to="/">
+          <img src={Notificacao} alt="Notificacao" />
+        </NotificacaoLink>
+      </OpcoesLink>
+    </NavbarContainer>
   );
 };
-export default NavBar
+
+export default NavBar;

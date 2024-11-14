@@ -50,7 +50,6 @@ import Cafeimg from "../Image/CAFE.png"
 const ReserverPage = () => {
     return (
         <>
-            <NavBar />
             <TituloAcomodacao>Nome Acomodação</TituloAcomodacao>
             <ContainerTitulos>
             <TituloH3>Reservar</TituloH3>
