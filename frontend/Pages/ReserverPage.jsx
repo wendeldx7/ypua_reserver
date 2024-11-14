@@ -1,13 +1,13 @@
 import React from "react";
 import NavBar from "../Components/NavBar.jsx";
 
-import { 
-    TituloAcomodacao, 
-    TituloH3, 
-    ReseverContainer, 
-    NomeEntrada, 
-    InputEntrada, 
-    NomeSaida, 
+import {
+    TituloAcomodacao,
+    TituloH3,
+    ReseverContainer,
+    NomeEntrada,
+    InputEntrada,
+    NomeSaida,
     InputSaida,
     InputContainer,
     NomeNome,
@@ -52,8 +52,8 @@ const ReserverPage = () => {
         <>
             <TituloAcomodacao>Nome Acomodação</TituloAcomodacao>
             <ContainerTitulos>
-            <TituloH3>Reservar</TituloH3>
-            <TituloFotoAcomodacao>Foto acomodação</TituloFotoAcomodacao>
+                <TituloH3>Reservar</TituloH3>
+                <TituloFotoAcomodacao>Foto acomodação</TituloFotoAcomodacao>
             </ContainerTitulos>
             <ContainerPage>
                 <ReseverContainer>
@@ -68,22 +68,22 @@ const ReserverPage = () => {
                                 <InputSaida />
                             </InputContainer>
                         </FormRow>
-                        
+
                         <InputContainer>
                             <NomeNome>Nome</NomeNome>
                             <InputNome />
                         </InputContainer>
-                        
+
                         <InputContainer>
                             <NomeCPF>CPF</NomeCPF>
                             <InputCPF />
                         </InputContainer>
-                        
+
                         <InputContainer>
                             <NomeTelefone>Telefone</NomeTelefone>
                             <InputTelefone />
                         </InputContainer>
-                        
+
                         <FormRow>
                             <InputContainer>
                                 <NomeHospedes>Hóspedes</NomeHospedes>
@@ -102,30 +102,30 @@ const ReserverPage = () => {
                     </FormColumn>
                     <BotaoReservar>Reservar</BotaoReservar>
                 </ReseverContainer>
-                
+
                 <AcomodacaoContainer>
-                
+
                     <FotoAcomodacao src={foto02} />
                     <DescricaoAcomodacao>Laguna, Santa catarina</DescricaoAcomodacao>
                     <DescricaoAcomodacao02>1 quarto, 1 cozinha, 1 banheiro </DescricaoAcomodacao02>
                     <ValorAcomodacao>R$300/dia</ValorAcomodacao>
                     <TituloComodidades>Comodidades populares</TituloComodidades>
                     <ContainerComodidades>
-                        <ImageComodidades src={CamaImg}/>
+                        <ImageComodidades src={CamaImg} />
                         <NomeComotidades>1 cama Casal</NomeComotidades>
-                        <ImageComodidades src={WifiImg}/>
+                        <ImageComodidades src={WifiImg} />
                         <NomeComotidades>wifi</NomeComotidades>
-                        <ImageComodidades src={ArCondicionadoimg}/>
+                        <ImageComodidades src={ArCondicionadoimg} />
                         <NomeComotidades>Ar Condicionado</NomeComotidades>
-                        <ImageComodidades src={TVimg}/>
+                        <ImageComodidades src={TVimg} />
                         <NomeComotidades>Tv</NomeComotidades>
-                        <ImageComodidades src={Banheiroimg}/>
+                        <ImageComodidades src={Banheiroimg} />
                         <NomeComotidades>1 Banheiro</NomeComotidades>
-                        <ImageComodidades src={Duchaimg}/>
+                        <ImageComodidades src={Duchaimg} />
                         <NomeComotidades>Ducha</NomeComotidades>
-                        <ImageComodidades src={Cosinhaimg}/>
+                        <ImageComodidades src={Cosinhaimg} />
                         <NomeComotidades>1 Cozinha</NomeComotidades>
-                        <ImageComodidades src={Cafeimg}/>
+                        <ImageComodidades src={Cafeimg} />
                         <NomeComotidades>Café</NomeComotidades>
                     </ContainerComodidades>
                 </AcomodacaoContainer>

@@ -28,17 +28,17 @@ const NavBar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/about" activeClassName="active">
+          <NavLink to="/checkIn" activeClassName="active">
             CHECK-IN
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/services" activeClassName="active">
+          <NavLink to="/reservas" activeClassName="active">
             RESERVAS
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/contact" activeClassName="active">
+          <NavLink to="/painel" activeClassName="active">
             PAINEL
           </NavLink>
         </NavItem>
