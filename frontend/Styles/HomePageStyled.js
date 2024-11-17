@@ -141,3 +141,25 @@ export const BottomButton = styled.button`
     color: black;
   }
 `;
+
+// Container para as bolinhas
+// Container para as bolinhas (indicadores) que ficam abaixo das imagens do carrossel
+export const IndicatorContainer = styled.div`
+  position: absolute;             // Posiciona o container de forma absoluta, para que ele fique sobreposto à imagem
+  bottom: 20px;                   // Alinha o container a 20px da parte inferior da tela
+  left: 50%;                      // Alinha o container ao centro horizontal da tela
+  transform: translateX(-50%);    // Ajusta o container para garantir que ele esteja perfeitamente centrado
+  display: flex;                  // Define o container como flexível para que os itens dentro dele (as bolinhas) fiquem alinhados horizontalmente
+  justify-content: center;        // Centraliza as bolinhas dentro do container
+  gap: 10px;                      // Adiciona um espaço de 10px entre cada bolinha
+  z-index: 100;                   // Define um valor de z-index para garantir que o container fique acima das imagens (se necessário)
+`;
+
+// Estilo para as bolinhas (indicadores) que mostram a imagem ativa
+export const Indicator = styled.div`
+  width: 20px;                    // Define a largura da bolinha como 12px
+  height: 20px;                   // Define a altura da bolinha como 12px
+  background-color: ${({ isActive }) => (isActive ? "#7E2726" : "#fff")};  // A cor de fundo da bolinha depende da propriedade 'isActive'. Se for ativa, será vermelha (#FF0000), senão será branca (#fff)
+  border-radius: 50%;             // Define a borda da bolinha como arredondada, criando um círculo
+  transition: background-color 0.3s;  // Aplica uma transição suave de 0.3 segundos quando a cor da bolinha mudar
+`;
