@@ -89,9 +89,7 @@ export const Aspas = styled.h1`
   transform: translate(-80%, -80%); // Centraliza o título
   z-index: 10; // Garante que o título fique acima da imagem
 `
-import styled from 'styled-components';
 
-import styled from 'styled-components';
 
 export const BottomButton = styled.button`
   width: 200px;
