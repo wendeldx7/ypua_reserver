@@ -6,7 +6,9 @@ import {
   Button,
   TituloImg,
   Aspas,
-  BottomButton
+  BottomButton,
+  IndicatorContainer,
+  Indicator
 } from "../Styles/HomePageStyled.js";
 
 import Img1 from "../Image/CarrosselHome/background1.png";
@@ -85,6 +87,15 @@ const HomePage = () => {
         <BottomButton>
           Reserve
         </BottomButton>
+        {/* Indicadores (bolinhas) */}
+        <IndicatorContainer>
+          {imagens.map((_, index) => (
+            <Indicator
+              key={index}
+              isActive={indiceAtual === index}
+            />
+          ))}
+        </IndicatorContainer>
       </ImageContainer>
     </>
   );
