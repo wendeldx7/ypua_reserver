@@ -1,4 +1,3 @@
-// HomePageStyled.js
 import styled from "styled-components";
 
 // Estilo para o título (h1)
@@ -10,7 +9,6 @@ export const Title = styled.h1`
 `;
 
 // Estilo para o container da imagem
-// Estilo para o container da imagem principal
 export const ImageContainer = styled.div`
   width: 96vw;
   max-width: 2300px;
@@ -38,83 +36,84 @@ export const ImageContainer = styled.div`
   }
 `;
 
-// Estilo para a imagem principal com transição
 export const Image = styled.img`
   width: 100%;
   height: 100%;
   display: block;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)}; // Controla visibilidade
-  transition: opacity 1s ease-in-out; // Suaviza a transição
-  position: absolute; // Para sobrepor imagens
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
+  position: absolute;
 `;
 
-
-
-// Estilo para os botões de navegação (setas)
 export const Button = styled.img`
   position: absolute;
   top: 60%;
-  transform: translateY(-50%); // Centraliza o botão verticalmente
+  transform: translateY(-50%);
   width: 29px;
   height: 54px;
   cursor: pointer;
 
   ${({ direction }) =>
     direction === "next"
-      ? "right: 15px;" // Posiciona o botão à direita com uma margem de 30px
-      : "left: 15px;"}// Posiciona o botão à esquerda com uma margem de 30px
+      ? "right: 15px;"
+      : "left: 15px;"}
 `;
-
-
 
 export const TituloImg = styled.h1`
   font-size: 36px;
   color: white;
-  font-weight: 500; // Semi-bold
-  font-style: italic; // Itálico
-  position: absolute; // Permite que o título fique sobreposto à imagem
-  top: 50%; // Posiciona o título no meio da imagem verticalmente
-  left: 50%; // Posiciona o título no meio da imagem horizontalmente
-  transform: translate(-80%, -80%); // Centraliza o título
-  z-index: 10; // Garante que o título fique acima da imagem
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // Adiciona uma sombra para melhorar a visibilidade
+  font-weight: 500;
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -80%);
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 `;
 
 export const Aspas = styled.h1`
   font-size: 100px;
-  color: #D2AE6D;
-  position: absolute; // Permite que o título fique sobreposto à imagem
-  top: 50%; // Posiciona o título no meio da imagem verticalmente
-  left: 50%; // Posiciona o título no meio da imagem horizontalmente
-  transform: translate(-80%, -80%); // Centraliza o título
-  z-index: 10; // Garante que o título fique acima da imagem
-`
+  color: #d2ae6d;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 
+  &.inicio {
+    left: -5%; // Posiciona a aspa inicial
+    transform: translate(-40%, -95%);
+  }
+
+  &.fim {
+    right: 10%; // Posiciona a aspa final
+    transform: translate(-180%, 20%);
+  }
+`;
 
 export const BottomButton = styled.button`
   width: 200px;
   height: 60px;
-  background-color: rgba(0, 0, 0, 0.7); // Preto com transparência
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
-  color: white; // Texto branco
-  font-size: 24px; // Tamanho da fonte
-  right: 70px; // Distância da parte direita
-  bottom: 70px; // Distância da parte inferior
-  border: 2px solid white; // Bordas brancas
-  padding: 10px 20px; // Espaçamento interno
-  border-radius: 5px; // Bordas arredondadas
-  cursor: pointer; // Muda o cursor para "pointer" ao passar o mouse
-  transition: all 0.3s ease-in-out; // Transição suave para o hover
+  color: white;
+  font-size: 24px;
+  right: 70px;
+  bottom: 70px;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   z-index: 999;
   font-weight: 300;
-  overflow: hidden; // Garante que o ripple não ultrapasse os limites do botão
-  position: relative; // Necessário para posicionar o efeito ripple
+  overflow: hidden;
+  position: relative;
 
   &:focus {
-    outline: none; // Remove o contorno de foco
+    outline: none;
   }
 
-  // Efeito ripple
   &::after {
     content: '';
     position: absolute;
@@ -122,23 +121,23 @@ export const BottomButton = styled.button`
     left: 50%;
     width: 300%;
     height: 300%;
-    background: rgba(255, 255, 255, 0.5); // Cor do ripple
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    pointer-events: none; // Garante que o ripple não interfira em outros elementos
+    pointer-events: none;
     transition: width 0.3s, height 0.3s, opacity 0.6s;
   }
 
   &:active::after {
     width: 0;
     height: 0;
-    opacity: 1; // O ripple aparece ao clicar
+    opacity: 1;
     transition: width 0.3s, height 0.3s, opacity 0.6s;
   }
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2); // Transparência maior ao passar o mouse
-    color: black; // Texto preto no hover
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
   }
 `;

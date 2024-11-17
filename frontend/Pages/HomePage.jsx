@@ -6,7 +6,7 @@ import {
   Button,
   TituloImg,
   Aspas,
-  BottomButton // Importação do estilo do botão
+  BottomButton
 } from "../Styles/HomePageStyled.js";
 
 import Img1 from "../Image/CarrosselHome/background1.png";
@@ -54,10 +54,13 @@ const HomePage = () => {
       <Title>Bem vindo ao sistema de reservas Ypuã</Title>
       <ImageContainer>
         <TituloImg>
-          <Aspas>"</Aspas>
+          {/* Aspas no início */}
+          <Aspas className="inicio">"</Aspas>
           Descubra o refúgio perfeito: <br />
           conforto, tranquilidade e natureza em
           harmonia. Bem-vindo à sua nova casa longe de casa.
+          {/* Aspas no final */}
+          <Aspas className="fim">"</Aspas>
         </TituloImg>
         {imagens.map((imagem, index) => (
           <Image
@@ -88,5 +91,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-
