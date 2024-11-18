@@ -1,10 +1,15 @@
 import react from "react";
 import "../App/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
+
+
 import ReserverPage from "../Pages/ReserverPage";
 import HomePage from "../Pages/HomePage";
-import Footer from "../Components/Footer";
+import CheckInPage from "../Pages/CheckinPage";
+
 
 const App = () => {
   return (
@@ -13,8 +18,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Reservas" element={<ReserverPage />} />
+        <Route path="/Checkin" element={<CheckInPage />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 };
