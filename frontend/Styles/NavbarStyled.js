@@ -9,7 +9,7 @@ export const NavbarContainer = styled.nav`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 90px;
   position: sticky;
   z-index: 10; 
   top: 0;
@@ -34,8 +34,8 @@ export const LupaLink = styled(Link)`
   margin-right: 60px;
 
   img {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     transition: transform 0.3s;
   }
   &:hover {
@@ -49,8 +49,8 @@ export const PerfilLink = styled(Link)`
   margin-right: 60px;
 
   img {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     transition: transform 0.3s;
   }
   &:hover {
@@ -64,8 +64,8 @@ export const NotificacaoLink = styled(Link)`
 
 
   img {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     transition: transform 0.3s;
   }
   &:hover {
