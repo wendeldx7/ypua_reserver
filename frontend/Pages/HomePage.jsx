@@ -3,7 +3,7 @@ import {
   Title,
   ImageContainer,
   Image,
-  Button,
+  SetaImg,
   TituloImg,
   Aspas,
   BottomButton,
@@ -72,13 +72,13 @@ const HomePage = () => {
             isVisible={indiceAtual === index}
           />
         ))}
-        <Button
+        <SetaImg
           src={SetasEsquerda}
           alt="Voltar"
           direction="prev"
           onClick={voltarImagem}
         />
-        <Button
+        <SetaImg
           src={SetasDireita}
           alt="Passar"
           direction="next"
