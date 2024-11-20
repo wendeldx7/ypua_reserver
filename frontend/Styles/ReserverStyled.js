@@ -28,6 +28,8 @@ export const ReseverContainer = styled.div`
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     padding: 20px;
     flex-direction: column;
+    margin-bottom: 50px;
+
 `;
 
 export const FormColumn = styled.div`
@@ -199,7 +201,7 @@ export const BotaoReservar = styled.button`
 `;
 
 export const AcomodacaoContainer = styled.div`
-
+    margin-bottom: 50px;
 
 `;
 
@@ -301,4 +303,28 @@ export const NomeComotidades = styled.h3`
 
 export const Resumo = styled.p`
     color: black;
+`
+
+
+
+
+export const TituloCondições = styled.h3`
+    color: black;
+    margin-top: 42px;
+    margin-left: 21px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+`
+
+
+export const NomeCondições = styled.h3`
+    color: black;
+    font-size: 20px;
+    margin-left:21px;
+    margin-right: 51px;
+    margin-top: 5px;
+    font-weight: 300;   
+    font-family: 'Montserrat', sans-serif;
+    white-space:nowrap;
 `
