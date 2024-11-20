@@ -95,7 +95,6 @@ export const Divlink = styled.div`
 `;
 
 export const NavLink = styled(RouterNavLink)`
-  //* estilo de cada link (nao colocar a navbar definida como navink)
   color: black;
   font-weight: 500;
   text-decoration: none;
@@ -119,6 +118,7 @@ export const NavLink = styled(RouterNavLink)`
     visibility: visible;
     width: 100%;
   }
+
   &.active {
     &::before {
       visibility: visible;

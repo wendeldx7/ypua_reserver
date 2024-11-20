@@ -8,7 +8,8 @@ import {
   Aspas,
   BottomButton,
   IndicatorContainer,
-  Indicator
+  Indicator,
+  TextoComAspasContainer
 } from "../Styles/HomePageStyled.js";
 
 import Img1 from "../Image/CarrosselHome/background1.png";
@@ -24,16 +25,16 @@ const HomePage = () => {
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [visibilidade, setVisibilidade] = useState(true);
 
-  // Função para passar para a próxima imagem
+
   const passarImagem = () => {
-    setVisibilidade(false); // Esconde a imagem atual
+    setVisibilidade(false);
     setTimeout(() => {
       setIndiceAtual((indiceAnterior) => (indiceAnterior + 1) % imagens.length);
-      setVisibilidade(true); // Mostra a nova imagem
-    }, 1000); // Tempo correspondente à duração da transição
+      setVisibilidade(true);
+    }, 1000);
   };
 
-  // Função para voltar para a imagem anterior
+
   const voltarImagem = () => {
     setVisibilidade(false);
     setTimeout(() => {
@@ -44,7 +45,7 @@ const HomePage = () => {
     }, 1000);
   };
 
-  // Hook para alternar as imagens automaticamente a cada 10 segundos
+
   useEffect(() => {
     const intervalo = setInterval(passarImagem, 10000);
 
@@ -53,23 +54,23 @@ const HomePage = () => {
 
   return (
     <>
-      <Title>Bem vindo ao sistema de reservas Ypuã</Title>
+      <Title>Bem-vindo ao sistema de reservas Ypuã</Title>
       <ImageContainer>
         <TituloImg>
-          {/* Aspas no início */}
-          <Aspas className="inicio">"</Aspas>
-          Descubra o refúgio perfeito: <br />
-          conforto, tranquilidade e natureza em
-          harmonia. Bem-vindo à sua nova casa longe de casa.
-          {/* Aspas no final */}
-          <Aspas className="fim">"</Aspas>
+          <TextoComAspasContainer>
+            <Aspas className="inicio">"</Aspas>
+            Descubra o refúgio perfeito: <br />
+            conforto, tranquilidade e natureza em harmonia. Bem-vindo à sua nova casa longe de casa.
+            <Aspas className="fim">"</Aspas>
+          </TextoComAspasContainer>
         </TituloImg>
+
         {imagens.map((imagem, index) => (
           <Image
             key={index}
             src={imagem}
             alt={`Imagem ${index + 1}`}
-            isVisible={indiceAtual === index}
+            $isVisible={indiceAtual === index}
           />
         ))}
         <SetaImg
@@ -87,12 +88,12 @@ const HomePage = () => {
         <BottomButton>
           Reserve
         </BottomButton>
-        {/* Indicadores (bolinhas) */}
+
         <IndicatorContainer>
           {imagens.map((_, index) => (
             <Indicator
               key={index}
-              isActive={indiceAtual === index}
+              $isActive={indiceAtual === index}
             />
           ))}
         </IndicatorContainer>
