@@ -6,6 +6,7 @@ import {
   CampoEntrada, 
   Label, 
   Input, 
+  LinhaVertical, 
   BotaoPesquisar 
 } from "../Styles/CheckinStyled.js";
 
@@ -30,6 +31,7 @@ const PaginaCheckIn = () => {
             onChange={(e) => setDataEntrada(e.target.value)}
           />
         </CampoEntrada>
+        <LinhaVertical />
         <CampoEntrada>
           <Label>Saída</Label>
           <Input
