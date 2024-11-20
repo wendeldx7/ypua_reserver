@@ -18,7 +18,7 @@ export const MiniNavbar = styled.div`
   justify-content: space-between;
   width: 90%;
   max-width: 1200px;
-  height: 100px;
+  height: 70px;
   margin: 20px auto;
   padding: 0 10px;
   background-color: #FFFFFF;
@@ -38,7 +38,7 @@ export const CampoEntrada = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 30%;
+  width: 28%;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -46,7 +46,6 @@ export const CampoEntrada = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 5px;
   font-size: 1rem;
   color: #333;
 `;
@@ -57,10 +56,21 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  width: 100%;
+  width: 50%;
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+`;
+
+export const LinhaVertical = styled.div`
+  width: 2px;
+  height: 100%;
+  background-color: #ccc;
+  margin: 0 15px;
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
