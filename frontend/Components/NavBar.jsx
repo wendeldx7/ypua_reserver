@@ -18,28 +18,28 @@ import Notificacao from "../Image/notificacao.png";
 const NavBar = () => {
   return (
     <NavbarContainer>
-      <LogoLink to="/">
+      <LogoLink to="/"> {/* Não aninhe mais Links */}
         <img src={Logo} alt="Logo" />
       </LogoLink>
       <h2>sladjjsd</h2>
       <Divlink>
         <NavItem>
-          <NavLink to="/" activeClassName="active">
+          <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
             INÍCIO
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/checkIn" activeClassName="active">
+          <NavLink to="/checkIn" className={({ isActive }) => (isActive ? "active" : "")}>
             CHECK-IN
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/reservas" activeClassName="active">
+          <NavLink to="/reservas" className={({ isActive }) => (isActive ? "active" : "")}>
             RESERVAS
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/painel" activeClassName="active">
+          <NavLink to="/painel" className={({ isActive }) => (isActive ? "active" : "")}>
             PAINEL
           </NavLink>
         </NavItem>
@@ -48,7 +48,7 @@ const NavBar = () => {
         <LupaLink to="/">
           <img src={Lupa} alt="Lupa" />
         </LupaLink>
-        <PerfilLink to="/"> 
+        <PerfilLink to="/perfil"> 
           <img src={Perfil} alt="Perfil" />
         </PerfilLink>
         <NotificacaoLink to="/">

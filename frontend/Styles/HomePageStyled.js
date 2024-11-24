@@ -17,7 +17,7 @@ export const ImageContainer = styled.div`
   min-width: 700px;
   min-height: 500px;
   margin: 35px auto 0;
-  position: relative;
+  position: relative; 
   overflow: hidden;
 
   @media (max-width: 1024px) {
@@ -40,7 +40,7 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   display: block;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transition: opacity 1s ease-in-out;
   position: absolute;
 `;
@@ -59,16 +59,20 @@ export const SetaImg = styled.img`
       : "left: 15px;"}
 `;
 
-export const TituloImg = styled.h1`
-  font-size: 36px;
-  color: white;
-  font-weight: 500;
-  font-style: italic;
+export const TextoComAspasContainer = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-80%, -80%);
+  left: 42%;
+  transform: translate(-50%, -50%);
   z-index: 2;
+`;
+
+export const TituloImg = styled.h1`
+  font-size: 26px;
+  color: white;
+  font-weight: 300;
+  font-style: italic;
+  z-index: 10;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 `;
 
@@ -91,73 +95,65 @@ export const Aspas = styled.h1`
   }
 `;
 
+
 export const BottomButton = styled.button`
   width: 200px;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
   color: white;
   font-size: 24px;
+  position: absolute;
   right: 70px;
   bottom: 70px;
   border: 2px solid white;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  overflow: hidden; //*faaz com oq o efeito não saia do botão
   transition: all 0.3s ease-in-out;
-  z-index: 999;
   font-weight: 300;
-  overflow: hidden;
-  position: relative;
 
-  &:focus {
-    outline: none;
-  }
-
-  &::after {
+  //* hover de onda
+  &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    transition: width 0.3s, height 0.3s, opacity 0.6s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateX(-100%); 
+    transition: transform 0.4s ease-in-out;
+    z-index: 0;
   }
 
-  &:active::after {
-    width: 0;
-    height: 0;
-    opacity: 1;
-    transition: width 0.3s, height 0.3s, opacity 0.6s;
+  &:hover::before {
+    transform: translateX(0); 
   }
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: black;
   }
+  z-index: 999;
 `;
 
 export const IndicatorContainer = styled.div`
   position: absolute;             
   bottom: 20px;                   
-  left: 50%;                    
-  transform: translateX(-50%);    
+  left: 50%;                     
+  transform: translateX(-50%);   
   display: flex;                 
-  justify-content: center;      
+  justify-content: center;       
   gap: 10px;                     
   z-index: 100;                   
 `;
 
-
 export const Indicator = styled.div`
   width: 15px;               
   height: 15px;               
-  background-color: ${({ isActive }) => (isActive ? "#7E2726" : "#fff")};  
+  background-color: ${({ $isActive }) => ($isActive ? "#7E2726" : "#fff")};  
   border-radius: 50%;            
   transition: background-color 0.3s; 
 `;
+  

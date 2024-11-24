@@ -1,6 +1,6 @@
-import conn from "../config/conn.js";
-import { DataTypes } from "sequelize";
 import Quarto from "./hospedagemModel.js";
+import { DataTypes } from "sequelize";
+import conn from "../config/conn.js";
 
 const CheckIn = conn.define(
   "Checkin",
@@ -26,8 +26,7 @@ const CheckIn = conn.define(
       validate: {
         min: {
           args: 1,
-          message:
-            "É necessário pelo menos 1 adulto para realização do check-in.",
+          message: "É necessário pelo menos 1 adulto para realização do check-in.",
         },
       },
     },
@@ -45,6 +44,10 @@ const CheckIn = conn.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    nome: { // Novo campo para armazenar o nome da pessoa que fez a reserva
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     tableName: "checkin",
@@ -52,11 +55,12 @@ const CheckIn = conn.define(
   }
 );
 
+// Ajuste do relacionamento com chave estrangeira correta (quartoId)
 Quarto.hasMany(CheckIn, {
-  foreignKey: "id",
+  foreignKey: "quartoId", // Agora usamos "quartoId" como chave estrangeira
 });
 CheckIn.belongsTo(Quarto, {
-  foreignKey: "id",
+  foreignKey: "quartoId", // Agora usamos "quartoId" como chave estrangeira
 });
 
 export default CheckIn;

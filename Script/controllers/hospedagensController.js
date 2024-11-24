@@ -56,14 +56,4 @@ export const createRoom = async (request, response) => {
   }
 };
 
-export const checkIn = async (request, response) => {
-  const {
-    quarto,
-    tipo,
-    descricao,
-    capacidade,
-    precoPorNoite,
-    situacao,
-    facilidades,
-  } = request.body;
-};
+
