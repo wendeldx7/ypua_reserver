@@ -1,63 +1,126 @@
 import React, { useState } from "react";
 import {
-    NavbarLateral,
-    BotaoToggle,
-    ItemLink,
-    NomeLink,
-    Separador,
-    ContainerSuperior,
-    Logo,
-    IconesDireita,
-    FotoPerfil,
-    BotaoNotificacao,
-} from "../Styles/PerfilStyled";
+  NavbarContainer,
+  NavbarButton,
+  NavLinks,
+  NavItem,
+  NavIcon,
+  LineSeparator,
+  NavText,
+  LogoImage,
+  RightIconsContainer,
+  IconImage,
+  WelcomeContainer,
+  WelcomeTitle,
+  EmailText,
+  EmailValue,
+  EmailContainer,
+  CargoContainer,
+  CargoText,
+  CargoValue,
+  UserDetailsContainer,
+  AvatarContainer,
+  AvatarImage
+} from "../Styles/PerfilStyled.js";
+import Logo from "../Image/logo.png";
+import Icon1 from "../Image/NavbarPerfil/ajuda.png";
+import Icon2 from "../Image/NavbarPerfil/calendario.png";
+import Icon3 from "../Image/NavbarPerfil/grafico.png";
+import Icon4 from "../Image/NavbarPerfil/local.png";
+import Icon5 from "../Image/NavbarPerfil/sair.png";
+import NotificationIcon from "../Image/notificacao.png";
+import ProfileIcon from "../Image/perfil.png";
 
-import LogoImg from "../image/logo.png";
-import FotoPerfilImg from "../image/perfil.png";
-import IconeNotificacao from "../image/notificacao.png";
+const NavbarLateral = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [avatar, setAvatar] = useState(null); // Estado para o avatar
 
-import Link1Img from "../Image/NavbarPerfil/ajuda.png";
-import Link2Img from "../Image/NavbarPerfil/calendario.png";
-import Link3Img from "../Image/NavbarPerfil/grafico.png";
-import Link4Img from "../Image/NavbarPerfil/local.png";
-import Link5Img from "../Image/NavbarPerfil/sair.png";
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
-const PaginaPerfil = () => {
-    const [navbarAberta, setNavbarAberta] = useState(false);
+  // Função para alterar o avatar
+  const handleAvatarChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setAvatar(reader.result); // Atualiza o avatar com a nova imagem
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
-    const toggleNavbar = () => setNavbarAberta(!navbarAberta);
+  return (
+    <>
+      <NavbarContainer isOpen={isOpen}>
+        <NavbarButton onClick={toggleNavbar}>☰</NavbarButton>
+        <NavLinks>
+          <NavItem isOpen={isOpen}>
+            <NavIcon src={Icon1} alt="Link 1" />
+            <NavText isOpen={isOpen}>A</NavText>
+          </NavItem>
+          <NavItem isOpen={isOpen}>
+            <NavIcon src={Icon2} alt="Link 2" />
+            <NavText isOpen={isOpen}>C</NavText>
+          </NavItem>
+          <NavItem isOpen={isOpen}>
+            <NavIcon src={Icon3} alt="Link 3" />
+            <NavText isOpen={isOpen}>G</NavText>
+          </NavItem>
+          <NavItem isOpen={isOpen}>
+            <NavIcon src={Icon4} alt="Link 4" />
+            <NavText isOpen={isOpen}>L</NavText>
+          </NavItem>
+          <NavItem isOpen={isOpen}>
+            <NavIcon src={Icon5} alt="Link 5" />
+            <NavText isOpen={isOpen}>S</NavText>
+          </NavItem>
+        </NavLinks>
+      </NavbarContainer>
 
-    const links = [
-        { img: Link1Img, nome: "Início" },
-        { img: Link2Img, nome: "Perfil" },
-        { img: Link3Img, nome: "Configurações" },
-        { img: Link4Img, nome: "Ajuda" },
-        { img: Link5Img, nome: "Sair" },
-    ];
+      <LineSeparator>
+        <LogoImage src={Logo} alt="Logo" isOpen={isOpen} />
+      </LineSeparator>
 
-    return (
-        <>
-            <ContainerSuperior>
-                <Logo src={LogoImg} alt="Logo" />
-                <IconesDireita>
-                    <FotoPerfil src={FotoPerfilImg} alt="Foto de Perfil" />
-                    <BotaoNotificacao src={IconeNotificacao} alt="Notificação" />
-                </IconesDireita>
-            </ContainerSuperior>
-            <NavbarLateral aberta={navbarAberta}>
-                <BotaoToggle onClick={toggleNavbar}>☰</BotaoToggle>
-                {links.map((link, index) => (
-                    <div key={index}>
-                        <ItemLink>
-                            <img src={link.img} alt={link.nome} />
-                            {navbarAberta && <NomeLink>{link.nome}</NomeLink>}
-                        </ItemLink>
-                        {index < links.length - 1 && <Separador />}
-                    </div>
-                ))}
-            </NavbarLateral>
-        </>
-    );
+      <RightIconsContainer>
+        <IconImage src={ProfileIcon} alt="Foto de Perfil" />
+        <IconImage src={NotificationIcon} alt="Notificação" />
+      </RightIconsContainer>
+
+      <WelcomeContainer>
+        <WelcomeTitle>Boas Vindas</WelcomeTitle>
+        <UserDetailsContainer>
+          <EmailContainer>
+            <EmailText>Email</EmailText>
+            <EmailValue>exemploemail@dominio.com</EmailValue>
+          </EmailContainer>
+          <CargoContainer>
+            <CargoText>Cargo</CargoText>
+            <CargoValue>Desenvolvedor</CargoValue>
+          </CargoContainer>
+
+          {/* Avatar Section */}
+          <AvatarContainer>
+            <input
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              id="avatarInput"
+              onChange={handleAvatarChange}
+            />
+            <label htmlFor="avatarInput">
+              <AvatarImage
+                src={avatar || "/placeholder-avatar.png"} // Exibe o avatar ou imagem padrão
+                alt="Avatar"
+              />
+            </label>
+          </AvatarContainer>
+        </UserDetailsContainer>
+      </WelcomeContainer>
+    </>
+  );
 };
 
-export default PaginaPerfil;
+export default NavbarLateral;
+ 
