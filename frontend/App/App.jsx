@@ -9,6 +9,7 @@ import Footer from "../Components/Footer";
 import ReserverPage from "../Pages/ReserverPage";
 import HomePage from "../Pages/HomePage";
 import CheckInPage from "../Pages/CheckinPage";
+import AcomodacaoPage from "../Pages/AcomodacaoPage";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/Reservas" element={<ReserverPage />} />
         <Route path="/Checkin" element={<CheckInPage />} />
+        <Route path="/acomodacao" element={<AcomodacaoPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

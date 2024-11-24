@@ -21,6 +21,7 @@ const NavBar = () => {
       <LogoLink to="/">
         <img src={Logo} alt="Logo" />
       </LogoLink>
+      <h2>sladjjsd</h2>
       <Divlink>
         <NavItem>
           <NavLink to="/" activeClassName="active">
