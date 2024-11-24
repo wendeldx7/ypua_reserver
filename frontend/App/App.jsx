@@ -14,6 +14,7 @@ import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
 
 import PrivateRoute from "../Components/PrivateRoute";
+import CheckInfo from "../Pages/historicoReserva";
 
 
 const App = () => {
@@ -32,7 +33,7 @@ const App = () => {
           }
         />
 
-        
+  <Route path="/historico" element={<CheckInfo />} /> 
         <Route path="/Reservas" element={<ReserverPage />} />
         <Route path="/Checkin" element={<CheckInPage />} />
         <Route path="/Perfil" element={<PaginaPerfil />} />
