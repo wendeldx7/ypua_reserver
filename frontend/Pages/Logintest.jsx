@@ -25,11 +25,9 @@ const Login = () => {
         senha,
       });
 
-      // Se o login for bem-sucedido, você pode salvar o token em localStorage ou como cookie
       localStorage.setItem('token', response.data.token);
 
-      // Redirecionar para uma página protegida
-      window.location.href = '/dashboard'; // Ou use o React Router para navegar
+      window.location.href = '/dashboard'; 
 
     } catch (err) {
       setErro('Erro ao realizar o login. Verifique suas credenciais.');

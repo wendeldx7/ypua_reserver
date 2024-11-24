@@ -11,10 +11,10 @@ export const LoginContainer = styled.div`
 
 export const LoginForm = styled.div`
   background-color: #fff;
-  height: 30vh;
+  height: 50vh;
   color: #800000;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   border: 2px solid #000000;
   width: 400px;
   max-width: 100%;
@@ -61,10 +61,10 @@ export const BtnEntrar = styled.button`
 `;
 export const WineContainer = styled.div`
    background-color: #fff;
-   height: 30vh;
+   height:50vh;
   color: #800000;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   border: 2px solid #000000;
   width: 400px;
   max-width: 100%;
