@@ -3,12 +3,11 @@ import "../App/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Footer from "../Components/Footer";
-
 import ReserverPage from "../Pages/ReserverPage";
 import HomePage from "../Pages/HomePage";
 import CheckInPage from "../Pages/CheckinPage";
-import AcomodacaoPage from "../Pages/AcomodacaoPage"; // Se você quer manter AcomodacaoPage
-import PaginaPerfil from "../Pages/PerfilPage"; // Se você quer manter PaginaPerfil
+import AcomodacaoPage from "../Pages/AcomodacaoPage"; // Importando AcomodacaoPage
+import PaginaPerfil from "../Pages/PerfilPage";
 import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
 
@@ -19,7 +18,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+        <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
@@ -29,15 +28,24 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/historico" element={<CheckInfo />} />
-        <Route path="/Reservas" element={<ReserverPage />} />
-        <Route path="/Checkin" element={<CheckInPage />} />
-        <Route path="/acomodacao" element={<AcomodacaoPage />} /> {/* Ou mantenha a PaginaPerfil */}
-        <Route path="/Perfil" element={<PaginaPerfil />} /> 
+        <Route path="/historico" element={<Layout><CheckInfo /></Layout>} />
+        <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
+        <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
+        <Route path="/acomodacao" element={<Layout><AcomodacaoPage /></Layout>} />  
+        <Route path="/Perfil" element={<Layout><PaginaPerfil /></Layout>} />
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 };
+
+function Layout({ children }) {
+  return (
+    <div>
+      <NavBar />
+      {children}
+    </div>
+  );
+}
 
 export default App;
