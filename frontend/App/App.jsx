@@ -19,6 +19,7 @@ import PrivateRoute from "../Components/PrivateRoute";
 const App = () => {
   return (
     <BrowserRouter>
+    <NavBar/>
       <Routes>
         <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
