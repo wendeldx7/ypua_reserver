@@ -33,7 +33,7 @@ const NavBar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/reservas" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/historico" className={({ isActive }) => (isActive ? "active" : "")}>
             RESERVAS
           </NavLink>
         </NavItem>
