@@ -11,7 +11,6 @@ export const ContainerFooter = styled.footer`
   color: white;
   font-size: 14px;
   z-index: 1000;
-  margin-top: 70px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
   box-sizing: border-box;

@@ -38,14 +38,14 @@ import {
     Resumo
 } from "../Styles/ReserverStyled";
 import foto02 from "../Image/FOTO02.png";
-import CamaImg from "../Image/Frame4.png";
-import WifiImg from "../Image/WIFI.png"
-import ArCondicionadoimg from "../Image/GELO.png"
-import TVimg from "../Image/TV.png"
-import Banheiroimg from "../Image/PAPEL.png"
-import Duchaimg from "../Image/CHUVEIRO.png"
-import Cosinhaimg from "../Image/TALHERES.png"
-import Cafeimg from "../Image/CAFE.png"
+import CamaImg from "../Image/Icones/Frame4.png";
+import WifiImg from "../Image/Icones/WIFI.png"
+import ArCondicionadoimg from "../Image/Icones/GELO.png"
+import TVimg from "../Image/Icones/TV.png"
+import Banheiroimg from "../Image/Icones/PAPEL.png"
+import Duchaimg from "../Image/Icones/CHUVEIRO.png"
+import Cosinhaimg from "../Image/Icones/TALHERES.png"
+import Cafeimg from "../Image/Icones/CAFE.png"
 
 const ReserverPage = () => {
     return (
