@@ -48,6 +48,7 @@ const CheckIn = conn.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    
   },
   {
     tableName: "checkin",

@@ -36,6 +36,7 @@ export const createRoom = async (request, response) => {
     precoPorNoite,
     situacao,
     facilidades,
+    caminhoImagem
   } = request.body;
 
   const newRoom = {
@@ -46,6 +47,7 @@ export const createRoom = async (request, response) => {
     precoPorNoite,
     situacao,
     facilidades,
+    caminhoImagem
   };
   try {
     await Quarto.create(newRoom);
@@ -56,4 +58,22 @@ export const createRoom = async (request, response) => {
   }
 };
 
+export const getQuartoPorId = async (request, response) => {
+  const { quartoId } = request.params; // Pega o quartoId da URL
 
+  try {
+    // Busca o quarto pelo ID usando findByPk
+    const quarto = await Quarto.findByPk(quartoId);
+
+    if (!quarto) {
+      // Se o quarto não for encontrado, retorna erro 404
+      return response.status(404).json({ message: "Quarto não encontrado" });
+    }
+
+    // Se encontrado, retorna o quarto
+    response.status(200).json(quarto);
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: "Erro ao buscar o quarto" });
+  }
+};

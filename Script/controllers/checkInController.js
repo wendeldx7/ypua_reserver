@@ -75,7 +75,8 @@ export const createCheckIn = async (request, response) => {
       criancas,
       bebes,
       precoTotal,
-      nome, // Aqui você passa o nome da pessoa que fez a reserva
+      nome,
+   // Aqui você passa o nome da pessoa que fez a reserva
     });
 
     await quarto.update({ situacao: "reservado" });
