@@ -23,8 +23,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
-         
-          <Route
+
+        <Route
           path="/dashboard"
           element={
             <PrivateRoute>
@@ -33,7 +33,7 @@ const App = () => {
           }
         />
 
-  <Route path="/historico" element={<CheckInfo />} /> 
+        <Route path="/historico" element={<CheckInfo />} />
         <Route path="/Reservas" element={<ReserverPage />} />
         <Route path="/Checkin" element={<CheckInPage />} />
         <Route path="/Perfil" element={<PaginaPerfil />} />
