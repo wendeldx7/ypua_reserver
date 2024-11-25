@@ -12,6 +12,8 @@ import CheckInPage from "../Pages/CheckinPage";
 import PaginaPerfil from "../Pages/PerfilPage";
 import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
+import QuartoPage from "../Pages/QuartoPage";
+
 
 import PrivateRoute from "../Components/PrivateRoute";
 import CheckInfo from "../Pages/historicoReserva";
@@ -23,7 +25,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
-
+        <Route path="/check/:quartoId" element={<QuartoPage />} /> 
         <Route path="/dashboard"element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/historico" element={<Layout><CheckInfo /></Layout>} />
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
