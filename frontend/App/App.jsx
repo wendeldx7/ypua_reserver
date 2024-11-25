@@ -20,28 +20,27 @@ import CheckInfo from "../Pages/historicoReserva";
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-
-        <Route path="/historico" element={<CheckInfo />} />
-        <Route path="/Reservas" element={<ReserverPage />} />
-        <Route path="/Checkin" element={<CheckInPage />} />
-        <Route path="/Perfil" element={<PaginaPerfil />} />
+        <Route path="/dashboard"element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
+        <Route path="/historico" element={<Layout><CheckInfo /></Layout>} />
+        <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
+        <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
+        <Route path="/Perfil" element={<PaginaPerfil/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 };
+function Layout({ children }) {
+  return (
+    <div>
+      <NavBar />
+      {children}
+    </div>
+  );
+}
 
 export default App;
