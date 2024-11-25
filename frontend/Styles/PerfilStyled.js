@@ -1,9 +1,5 @@
-
 import styled from "styled-components";
 
-// Container da Navbar: o tamanho varia dependendo do estado 'isOpen', que pode ser 200px ou 100px.
-// Também aplica a borda direita e um estilo de altura 100vh (ocupa toda a altura da tela),
-// com flexbox para alinhar os itens da navbar.
 export const NavbarContainer = styled.div`
     width: ${({ isOpen }) => (isOpen ? "200px" : "100px")};  // Largura baseada no estado 'isOpen'
     border-right: 3px solid #d8e2e8;  // Borda à direita da navbar
@@ -143,8 +139,28 @@ export const WelcomeContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;  // Alinha o conteúdo à esquerda
   justify-content: flex-start;  // Alinha o conteúdo para o topo
-  padding-left: 20px;  // Adiciona um pouco de espaço à esquerda
-  background-color: green;
+`;
+export const UserDetailsContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;  // Alinha todos os itens à esquerda
+  align-items: center;  // Centraliza o conteúdo verticalmente
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 30px;  // Diminui o espaço entre os itens
+`;
+
+export const AvatarContainer = styled.div`
+  display: flex;               // Para centralizar o conteúdo
+  justify-content: center;
+  align-items: center;
+  width: 190px;                // Define o tamanho do contêiner do avatar
+  height: 190px;
+  border-radius: 50%;          // Torna o contêiner circular
+  background-color: #ff690f;   // Cor de fundo
+  overflow: hidden;            // Para imagens que excedam o contêiner
+  border: 2px solid #d8e2e8;   // Adiciona uma borda
+  cursor: pointer;             // Exibe o cursor de mão ao passar
 `;
 
 // Estilo para o h1 dentro do WelcomeContainer
@@ -161,54 +177,44 @@ export const WelcomeTitle = styled.h1`
 export const EmailContainer = styled.div`
   display: flex;          // Usa flexbox para layout
   flex-direction: column; // Empilha os itens verticalmente
-  align-items: flex-start; // Alinha os itens à esquerda`;
+  align-items: flex-start; // Alinha os itens à esquerda`
+;
 
-// Estilo para o texto "Email"
 export const EmailText = styled.p`
   font-size: 18px;  // Tamanho da fonte
   color: gray;  // Cor cinza
 `;
-
-// Estilo para o valor do email
 export const EmailValue = styled.p`
   font-size: 18px;  // Tamanho da fonte
   color: black;  // Cor preta
 `;
 
-// Container que agrupa o título "Cargo" e o valor do cargo
 export const CargoContainer = styled.div`
-  display: flex;          // Usa flexbox para layout
-  flex-direction: column; // Empilha os itens verticalmente
-  align-items: flex-start; // Alinha os itens à esquerda
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20%;  // Remover a margem direita
 `;
 
-// Estilo para o título do cargo
+
+// Estilo para o  título do cargo
 export const CargoText = styled.p`
-  font-size: 18px;  // Tamanho da fonte
-  color: gray;      // Cor cinza
-`;
+    font-size: 18px;  // Tamanho da fonte
+    color: gray;      // Cor cinza
+  `;
 
 // Estilo para o valor do cargo
 export const CargoValue = styled.p`
-  font-size: 18px;  // Tamanho da fonte
-  color: black;     // Cor preta
-`;
+    font-size: 18px;  // Tamanho da fonte
+    color: black;     // Cor preta
+  `;
 // Container para alinhar o EmailContainer e o CargoContainer horizontalmente
-export const UserDetailsContainer = styled.div`
-  display: flex;          // Flexbox para layout
-  flex-direction: row;    // Itens alinhados horizontalmente
-  justify-content: flex-start; // Alinha os itens à esquerda
-  align-items: center;    // Alinha verticalmente ao centro
-  gap: 40px;              // Espaço entre os containers
-  margin-top: 20px;       // Distância do conteúdo acima
-  background-color: pink;
-`;
+
 export const FotoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 20px; // Ajuste a posição lateral
 
 `;
 
@@ -223,7 +229,9 @@ export const FotoUsuario = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f4f4f4; // Cor de fundo caso não haja imagem
+  
   cursor: pointer;
+  
 `;
 
 // Estilo para a imagem dentro do círculo
@@ -233,23 +241,134 @@ export const Imagem = styled.img`
   object-fit: cover;
 `;
 // Estilo para o container da imagem do avatar
-export const AvatarContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 190px; // Tamanho do círculo
-  height: 190px; // Tamanho do círculo
-  border-radius: 50%; // Forma circular
-  background-color: #FF690F; // Cor de fundo quando não houver imagem
-  overflow: hidden; // Para garantir que a imagem não ultrapasse os limites do círculo
-  border: 2px solid #d8e2e8; // Borda do círculo
-  cursor: pointer; // O cursor se torna uma mão ao passar sobre a imagem
-`;
 
 // Estilo para a imagem do avatar
 export const AvatarImage = styled.img`
-  width: 100%; // A imagem vai ocupar toda a área do contêiner
-  height: 100%; // A imagem vai ocupar toda a área do contêiner
-  object-fit: cover; // Faz a imagem preencher o círculo sem distorcer
-  border-radius: 50%; // As bordas da imagem também são arredondadas
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            // Ajusta a imagem para preencher o círculo
+`;
+export const LargeContainer = styled.div`
+width: 100%; /* Largura de 100% */
+height: 500px; /* Altura de 400px */
+border-top: 5px solid #d8e2e8; /* Borda de 5px no topo */
+transform: translateY(-150px); /* Subindo o contêiner 100px para cima */
+`;
+
+export const Title = styled.div`
+position: absolute;
+top: -30px; /* Posiciona acima da borda superior */
+left: 265px; /* Define a posição a 200px da esquerda */
+color: #461615; /* Cor preta */
+font-size: 18px; /* Tamanho da fonte */
+font-weight: bold; /* Negrito */
+border-bottom: 5px solid #461615;
+`;
+
+export const Heading = styled.h1`
+position: absolute;
+left: 265px;
+font-size: 24px; /* Tamanho da fonte */
+font-weight: bold; /* Negrito */
+margin-top: 20px; /* Distância do topo */
+`;
+
+export const InnerContainer = styled.div`
+  width: 60%; /* Largura relativa ao contêiner pai */
+  height: auto; /* Ajusta conforme o conteúdo */
+  margin: auto; /* Centraliza horizontalmente */
+  display: flex; /* Facilita o alinhamento interno */
+  justify-content: space-between; /* Distribui os itens entre os dois lados */
+  align-items: flex-start; /* Alinha os itens ao topo */
+  border: 3px solid #d8e2e8; /* Mesma cor da borda do contêiner principal */
+  border-radius: 14px; /* Cantos arredondados */
+  background-color: transparent; /* Fundo transparente */
+  margin-top: 75px;
+  padding: 20px;
+  box-sizing: border-box; /* Garantia para respeitar padding e bordas */
+`;
+
+export const DataContainer = styled.div`
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%; /* Para alinhar corretamente os inputs no container */
+`;
+
+export const DataLabel = styled.label`
+  position: absolute;
+  top: 10px; /* Inicialmente o label ficará sobre o input */
+  left: 12px;
+  color: #888;
+  font-size: 16px;
+  background-color: transparent;
+  padding: 0 5px;
+  pointer-events: none; /* O label não interfere no clique do input */
+  transition: 0.2s all ease;
+  z-index: 1; /* Garante que o label fique sobre o input */
+
+  /* Quando o input estiver em foco ou o valor for preenchido */
+  &:focus,
+  &:not(:placeholder-shown) {
+    top: -8px;
+    left: 12px;
+    font-size: 12px;
+    color: #2b439c;
+    background-color: #EFF1F4;
+  }
+`;
+export const InputField = styled.input`
+  width: 100%; /* Agora usa 100% do espaço do contêiner pai */
+  padding: 16px 40px 16px 12px; /* Adicionado espaço à direita para o botão */
+  border: 2px solid #d8e2e8;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  position: relative;
+  background-color: #EFF1F4;
+  box-sizing: border-box; /* Inclui padding e bordas na largura total */
+
+  &:focus {
+    border-color: #2b439c;
+  }
+
+  /* Especificação para o label se mover */
+  &:focus + ${DataLabel},
+  &:not(:placeholder-shown) + ${DataLabel} {
+    top: -10px;
+    left: 12px;
+    font-size: 15px;
+    color: #000000;
+    background-color: #EFF1F4;
+    padding: 0 5px;
+    font-weight: 200;
+  }
+`;
+
+export const EditButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: #461615;
+  cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  right: 20px; /* Espaço entre o botão e a borda direita do input */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px; /* Altura ajustada para caber dentro do input */
+  width: 30px; /* Largura proporcional */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LeftContainer = styled.div`
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box; /* Respeita os paddings e bordas */
+`;
+
+export const RightContainer = styled.div`
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box; /* Respeita os paddings e bordas */
 `;
