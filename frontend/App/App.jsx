@@ -20,9 +20,9 @@ import CheckInfo from "../Pages/historicoReserva";
 const App = () => {
   return (
     <BrowserRouter>
-    <NavBar/>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
 
         <Route
