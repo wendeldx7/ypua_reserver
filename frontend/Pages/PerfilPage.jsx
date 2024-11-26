@@ -41,6 +41,8 @@ import Icon5 from "../Image/NavbarPerfil/sair.png";
 import NotificationIcon from "../Image/notificacao.png";
 import ProfileIcon from "../Image/perfil.png";
 
+import Header from "../Components/header/index.jsx";
+
 const NavbarLateral = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [avatar, setAvatar] = useState(null); // Estado para o avatar
@@ -63,41 +65,7 @@ const NavbarLateral = () => {
 
   return (
     <>
-      <NavbarContainer isOpen={isOpen}>
-        <NavbarButton onClick={toggleNavbar}>☰</NavbarButton>
-        <NavLinks>
-          <NavItem isOpen={isOpen}>
-            <NavIcon src={Icon1} alt="Link 1" />
-            <NavText isOpen={isOpen}>A</NavText>
-          </NavItem>
-          <NavItem isOpen={isOpen}>
-            <NavIcon src={Icon2} alt="Link 2" />
-            <NavText isOpen={isOpen}>C</NavText>
-          </NavItem>
-          <NavItem isOpen={isOpen}>
-            <NavIcon src={Icon3} alt="Link 3" />
-            <NavText isOpen={isOpen}>G</NavText>
-          </NavItem>
-          <NavItem isOpen={isOpen}>
-            <NavIcon src={Icon4} alt="Link 4" />
-            <NavText isOpen={isOpen}>L</NavText>
-          </NavItem>
-          <NavItem isOpen={isOpen}>
-            <NavIcon src={Icon5} alt="Link 5" />
-            <NavText isOpen={isOpen}>S</NavText>
-          </NavItem>
-        </NavLinks>
-      </NavbarContainer>
-
-      <LineSeparator>
-        <LogoImage src={Logo} alt="Logo" isOpen={isOpen} />
-      </LineSeparator>
-
-      <RightIconsContainer>
-        <IconImage src={ProfileIcon} alt="Foto de Perfil" />
-        <IconImage src={NotificationIcon} alt="Notificação" />
-      </RightIconsContainer>
-
+    <Header/>
       <WelcomeContainer>
         <WelcomeTitle>Boas Vindas</WelcomeTitle>
         <UserDetailsContainer>
