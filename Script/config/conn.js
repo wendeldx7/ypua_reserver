@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-const conn = new Sequelize("ypua_reserver", "root", "Sen@iDev77!.", {
+const conn = new Sequelize("ypua_reserver", "root", "123456", {
   host: "localhost",
   dialect: "mysql",
 });
