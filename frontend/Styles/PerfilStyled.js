@@ -146,7 +146,6 @@ export const WelcomeContainer = styled.div`
   transform: translate(-50%, -50%); // Ajusta a posição para garantir que o centro do container esteja no centro da página
   width: 75%;
   height: 250px;
-  background-color: gray;
   display: flex; // Ativa o flexbox
   justify-content: space-between; // Coloca o conteúdo nos extremos (esquerda e direita)
   align-self: bottom;
@@ -184,7 +183,7 @@ export const UserDetailsContainer = styled.div`
   padding: 10px;
   box-sizing: border-box;
   gap: 10%; // Adiciona um espaço entre os itens
-  background-color: green;
+
   margin-top: 175px; // Ajuste a distância para baixo conforme necessário
 `;
 
@@ -193,15 +192,14 @@ export const EmailContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start; // Alinha os textos à esquerda
-  background-color: pink;
+
   width: 50%; // Garante que o container de email ocupe metade do espaço disponível
 `;
 export const CargoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start; // Alinha os textos à esquerda
-  background-color: blue;
-  width: 50%; // Garante que o container de cargo ocupe metade do espaço disponível
+ width: 50%; // Garante que o container de cargo ocupe metade do espaço disponível
 `;
 
 export const EmailText = styled.p`
@@ -266,13 +264,14 @@ export const LargeContainer = styled.div`
   width: 100%; /* Largura de 100% */
   height: 500px; /* Altura de 400px */
   border-top: 3px solid #d8e2e8; /* Borda de 5px no topo */
-  transform: translateY(-250px); /* Subindo o contêiner 100px para cima */
+  margin-top: 400px;
 `;
 
 export const Title = styled.div`
   position: absolute;
-  top: -30px; /* Posiciona acima da borda superior */
-  left: 265px; /* Define a posição a 200px da esquerda */
+  margin-top: 500px;
+  top: -50px; /* Posiciona acima da borda superior */
+  left: 200px; /* Define a posição a 200px da esquerda */
   color: #461615; /* Cor preta */
   font-size: 18px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
@@ -281,7 +280,7 @@ export const Title = styled.div`
 
 export const Heading = styled.h1`
   position: absolute;
-  left: 265px;
+  left: 200px;
   font-size: 24px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
   margin-top: 20px; /* Distância do topo */
