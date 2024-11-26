@@ -16,7 +16,7 @@ import QuartoPage from "../Pages/QuartoPage";
 
 
 import PrivateRoute from "../Components/PrivateRoute";
-import CheckInfo from "../Pages/historicoReserva";
+import HistoricoDeReservas from "../Pages/historicoReserva";
 
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/check/:quartoId" element={<QuartoPage />} /> 
         <Route path="/dashboard"element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
-        <Route path="/historico" element={<Layout><CheckInfo /></Layout>} />
+        <Route path="/historico" element={<Layout><HistoricoDeReservas /></Layout>} />
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
         <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
         <Route path="/Perfil" element={<PaginaPerfil/>} />
