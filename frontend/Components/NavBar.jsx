@@ -38,7 +38,7 @@ const NavBar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/painel" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
             PAINEL
           </NavLink>
         </NavItem>
