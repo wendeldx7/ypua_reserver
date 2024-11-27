@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Biblioteca para realizar requisições HTTP
+
 import {
   NavbarContainer,
   NavbarButton,
@@ -44,9 +47,50 @@ import ProfileIcon from "../Image/perfil.png";
 import Header from "../Components/header/index.jsx";
 
 const NavbarLateral = () => {
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Hook para navegação
   const [isOpen, setIsOpen] = useState(true);
   const [avatar, setAvatar] = useState(null); // Estado para o avatar
+  useEffect(() => {
+    // Função para buscar as informações do usuário
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token'); // Recupera o token do localStorage
 
+      if (!token) {
+        setError('Usuário não autenticado.');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Envia o token como parte do cabeçalho da requisição
+        const response = await axios.get('http://localhost:3333/user', {
+          headers: {
+            Authorization: `Bearer ${token}`, // Token enviado no cabeçalho
+          },
+        });
+
+        setUserData(response.data); // Armazena os dados do usuário no estado
+        setLoading(false); // Finaliza o carregamento
+      } catch (err) {
+        setError('Erro ao carregar as informações do usuário.');
+        setLoading(false); // Finaliza o carregamento
+      }
+    };
+
+    fetchUserData(); // Chama a função de busca
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    navigate('/login'); // Redireciona o usuário para a página de login
+  };
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+  
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -62,20 +106,22 @@ const NavbarLateral = () => {
       reader.readAsDataURL(file);
     }
   };
-
+console.log(userData)
   return (
     <>
     <Header/>
+    <button onClick={handleLogout}>Sair</button>
       <WelcomeContainer>
+        
         <WelcomeTitle>Boas Vindas</WelcomeTitle>
         <UserDetailsContainer>
           <EmailContainer>
             <EmailText>Email</EmailText>
-            <EmailValue>exemploemail@dominio.com</EmailValue>
+            <EmailValue>{userData.email}</EmailValue>
           </EmailContainer>
           <CargoContainer>
             <CargoText>Cargo</CargoText>
-            <CargoValue>Desenvolvedor</CargoValue>
+            <CargoValue>{userData.cargo}</CargoValue>
           </CargoContainer>
         </UserDetailsContainer>
         <AvatarContainer>
@@ -97,6 +143,7 @@ const NavbarLateral = () => {
 
       <LargeContainer>
         <Title>Conta</Title>
+        
         <Heading>Dados Pessoais</Heading>
         <InnerContainer>
           <LeftContainer>
@@ -104,7 +151,7 @@ const NavbarLateral = () => {
               <InputField
                 id="nome"
                 type="text"
-                value="João Silva"
+                value={userData.nome}
                 placeholder=" "
                 readOnly
               />
@@ -116,7 +163,7 @@ const NavbarLateral = () => {
               <InputField
                 id="nomeExibicao"
                 type="text"
-                value="João"
+                value={userData.nomeExibicao}
                 placeholder=" "
                 readOnly
               />
@@ -128,7 +175,7 @@ const NavbarLateral = () => {
               <InputField
                 id="email"
                 type="email"
-                value="joao@email.com"
+                value={userData.email}
                 placeholder=" "
                 readOnly
               />
@@ -140,7 +187,7 @@ const NavbarLateral = () => {
               <InputField
                 id="telefone"
                 type="tel"
-                value="123-456-7890"
+                value={userData.telefone}
                 placeholder=" "
                 readOnly
               />
@@ -152,7 +199,7 @@ const NavbarLateral = () => {
               <InputField
                 id="endereco"
                 type="text"
-                value="Rua XYZ, 123"
+                value={userData.endereco}
                 placeholder=" "
                 readOnly
               />
@@ -166,7 +213,7 @@ const NavbarLateral = () => {
               <InputField
                 id="dataNascimento"
                 type="date"
-                value="1990-01-01"
+                value={new Date(userData.dataNascimento).toISOString().split('T')[0]}
                 placeholder=" "
                 readOnly
               />
@@ -178,7 +225,7 @@ const NavbarLateral = () => {
               <InputField
                 id="cpf"
                 type="text"
-                value="123.456.789-00"
+                value={userData.cpf}
                 placeholder=" "
                 readOnly
               />
@@ -190,7 +237,7 @@ const NavbarLateral = () => {
               <InputField
                 id="genero"
                 type="text"
-                value="Masculino"
+                value={userData.genero}
                 placeholder=" "
                 readOnly
               />
@@ -198,7 +245,9 @@ const NavbarLateral = () => {
               <EditButton>Editar</EditButton>
             </DataContainer>
           </RightContainer>
+          
         </InnerContainer>
+        
       </LargeContainer>
     </>
   );
