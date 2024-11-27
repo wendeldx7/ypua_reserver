@@ -19,6 +19,7 @@ import AcomodacaoPage from "../Pages/AcomodacaoPage"; // Importando AcomodacaoPa
 
 import PrivateRoute from "../Components/PrivateRoute";
 import HistoricoDeReservas from "../Pages/historicoReserva";
+import Page404 from "../Pages/Page404";
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
         <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
         <Route path="/Perfil" element={<PaginaPerfil/>} />
+        <Route path="/404" element={<Page404/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
