@@ -8,6 +8,7 @@ router.get("/", getAllCheckIn);
 router.get("/:id", getCheckIn);
 router.put("/checkin/:id", updateCheckIn);
 router.put("/checkin/:id", deleteCheckIn);
+router.get("/checkin/:quartoId", getDatasIndisponiveis);
 
 
 export default router;

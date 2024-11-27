@@ -1,73 +1,54 @@
 import CheckIn from "../models/checkInModel.js";
 import Quarto from "../models/hospedagemModel.js";
+import Disponibilidade from "../models/disponibilidadeModel.js";
 import { Op } from "sequelize";
 
 export const createCheckIn = async (request, response) => {
   const { quartoId } = request.params;
-  const { checkInData, checkOutData, adultos, criancas, bebes, nome } = request.body; // Adiciona o campo nome
-
-  const dataEntrada = new Date(checkInData);
-  const dataSaida = new Date(checkOutData);
-
-  if (dataEntrada >= dataSaida) {
-    return response
-      .status(400)
-      .json({
-        message:
-          "A data de entrada não pode ser depois/maior que a data de saída.",
-      });
-  }
-
-  const milisegundos = dataSaida.getTime() - dataEntrada.getTime();
-  const dias = milisegundos / (1000 * 60 * 60 * 24);
-
-  if (dias <= 0) {
-    return response
-      .status(400)
-      .json({ message: "A quantidade de dias precisa ser maior que zero." });
-  }
+  const { checkInData, checkOutData, adultos, criancas, bebes, nome } = request.body;
 
   try {
+    // Verifica se o quarto existe
     const quarto = await Quarto.findByPk(quartoId);
     if (!quarto) {
       return response.status(404).json({ message: "Quarto não encontrado" });
     }
 
-    if (
-      quarto.situacao === "reservado" ||
-      quarto.situacao === "em manutenção"
-    ) {
-      return response
-        .status(400)
-        .json({ message: "O quarto está indisponível para reserva." });
-    }
-
-    const checkInExistente = await CheckIn.findOne({
+    // Verifica conflitos de datas
+    const conflito = await Disponibilidade.findOne({
       where: {
         quartoId,
         [Op.or]: [
-          { checkInData: { [Op.between]: [dataEntrada, dataSaida] } },
-          { checkOutData: { [Op.between]: [dataEntrada, dataSaida] } },
+          { dataInicio: { [Op.between]: [checkInData, checkOutData] } },
+          { dataFim: { [Op.between]: [checkInData, checkOutData] } },
           {
-            checkInData: { [Op.lte]: dataEntrada },
-            checkOutData: { [Op.gte]: dataSaida },
+            dataInicio: { [Op.lte]: checkInData },
+            dataFim: { [Op.gte]: checkOutData },
           },
         ],
       },
     });
 
-    if (checkInExistente) {
-      return response
-        .status(400)
-        .json({
-          message: "Este quarto já está reservado para o período selecionado.",
-        });
+    if (conflito) {
+      return response.status(400).json({
+        message: "Este quarto já está reservado para o período selecionado.",
+      });
     }
 
-    const precoPorNoite = quarto.precoPorNoite;
-    const precoTotal = precoPorNoite * dias;
+    // Calcula o total de dias
+    const dias = Math.ceil(
+      (new Date(checkOutData) - new Date(checkInData)) / (1000 * 60 * 60 * 24)
+    );
+    if (dias <= 1) {
+      return response.status(400).json({
+        message: "O período selecionado deve ter ao menos 2 dia.",
+      });
+    }
 
-    const newCheckin = await CheckIn.create({
+    const precoTotal = quarto.precoPorNoite * dias;
+
+    // Cria o Check-In
+    const checkIn = await CheckIn.create({
       quartoId,
       checkInData,
       checkOutData,
@@ -76,21 +57,16 @@ export const createCheckIn = async (request, response) => {
       bebes,
       precoTotal,
       nome,
-   // Aqui você passa o nome da pessoa que fez a reserva
     });
 
-    await quarto.update({ situacao: "reservado" });
-
-    const checkinComNomeQuarto = await CheckIn.findByPk(newCheckin.checkId, {
-      include: [
-        {
-          model: Quarto,
-          attributes: ["quarto"], // Incluindo o nome do quarto
-        },
-      ],
+    // Armazena a indisponibilidade
+    await Disponibilidade.create({
+      quartoId,
+      dataInicio: checkInData,
+      dataFim: checkOutData,
     });
 
-    response.status(201).json(checkinComNomeQuarto);
+    response.status(201).json({ message: "Check-in realizado com sucesso", checkIn });
   } catch (error) {
     console.error(error);
     response.status(500).json({ error: error.message });
@@ -185,6 +161,27 @@ export const deleteCheckIn = async (request, response) => {
 
     await checkIn.destroy();
     response.status(204).send();
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: error.message });
+  }
+};
+
+export const getDatasIndisponiveis = async (request, response) => {
+  const { quartoId } = request.params;
+
+  try {
+    const datasIndisponiveis = await Disponibilidade.findAll({
+      where: { quartoId },
+      attributes: ["dataInicio", "dataFim"],
+    });
+
+    const datas = datasIndisponiveis.map((indisponibilidade) => ({
+      inicio: indisponibilidade.dataInicio,
+      fim: indisponibilidade.dataFim,
+    }));
+
+    response.status(200).json({ datas });
   } catch (error) {
     console.error(error);
     response.status(500).json({ error: error.message });

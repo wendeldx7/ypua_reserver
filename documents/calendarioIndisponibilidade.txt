@@ -1,0 +1,41 @@
+import React, { useState, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+
+const Calendar = ({ quartoId }) => {
+  const [datasIndisponiveis, setDatasIndisponiveis] = useState([]);
+  const [dataSelecionada, setDataSelecionada] = useState(null);
+
+  useEffect(() => {
+    if (quartoId) {
+      axios
+        .get(`http://localhost:3333/checkin/${quartoId}/indisponibilidades`)
+        .then((response) => {
+          const datas = response.data.datas.map((intervalo) => ({
+            start: new Date(intervalo.inicio),
+            end: new Date(intervalo.fim),
+          }));
+          setDatasIndisponiveis(datas);
+        })
+        .catch((error) => console.error("Erro ao buscar indisponibilidades:", error));
+    }
+  }, [quartoId]);
+
+  const isDateBlocked = (date) => {
+    return datasIndisponiveis.some(
+      (intervalo) => date >= intervalo.start && date <= intervalo.end
+    );
+  };
+
+  return (
+    <DatePicker
+      selected={dataSelecionada}
+      onChange={(date) => setDataSelecionada(date)}
+      filterDate={(date) => !isDateBlocked(date)}
+      inline
+    />
+  );
+};
+
+export default Calendar;
