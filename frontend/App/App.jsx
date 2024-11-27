@@ -36,7 +36,7 @@ const App = () => {
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
         <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
         <Route path="/Perfil" element={<PaginaPerfil/>} />
-        <Route path="/404" element={<Page404/>} />
+        <Route path="/*" element={<Page404/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
