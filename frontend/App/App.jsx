@@ -13,7 +13,7 @@ import PaginaPerfil from "../Pages/PerfilPage";
 import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
 import QuartoPage from "../Pages/QuartoPage";
-import AcomodacaoPage from "../Pages/AcomodacaoPage"; // Importando AcomodacaoPage
+import AcomodacaoPage from "../Pages/AcomodacaoPage"; 
 
 
 
