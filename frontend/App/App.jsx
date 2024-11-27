@@ -27,7 +27,6 @@ const App = () => {
     <BrowserRouter>
       <Routes>
       <Route path="/acomodacao" element={<Layout><AcomodacaoPage /></Layout>} />  
-
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
         <Route path="/check/:quartoId" element={<QuartoPage />} /> 
@@ -38,6 +37,7 @@ const App = () => {
         <Route path="/Perfil" element={<PaginaPerfil/>} />
         <Route path="/*" element={<Page404/>} />
       </Routes>
+      <Footer/>
     
     </BrowserRouter>
   );

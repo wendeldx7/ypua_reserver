@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import imagensQuartos from "../utils/imagensQuartos"; 
+import imagensQuartos from "../utils/imagensQuartos";
 import { useNavigate } from "react-router-dom"; // Importe o hook useNavigate
 import Foto02 from "../Image/FOTO02.png";
 import Cafe from "../Image/CAFE.png";
@@ -35,7 +35,7 @@ import {
   BotaoConfirmar,
   ContainerTexto,
   BarraLateral,
-  ContainerFiltro
+  ContainerFiltro,
 } from "../Styles/AcomodacaoStyled";
 
 const icones = {
@@ -78,7 +78,8 @@ const AcomodacaoPage = () => {
 
   const ResumoPassageiros = () => {
     let resumo = `${adultos} Adulto${adultos > 1 ? "s" : ""}`;
-    if (criancas > 0) resumo += `, ${criancas} Criança${criancas > 1 ? "s" : ""}`;
+    if (criancas > 0)
+      resumo += `, ${criancas} Criança${criancas > 1 ? "s" : ""}`;
     if (bebes > 0) resumo += `, ${bebes} Bebê${bebes > 1 ? "s" : ""}`;
     return resumo;
   };
@@ -99,7 +100,9 @@ const AcomodacaoPage = () => {
   // Função para filtrar os quartos de acordo com a capacidade
   const filtrarQuartos = () => {
     const numeroHospedes = adultos + criancas + bebes;
-    const quartosFiltrados = acomodacoes.filter((quarto) => quarto.capacidade >= numeroHospedes);
+    const quartosFiltrados = acomodacoes.filter(
+      (quarto) => quarto.capacidade >= numeroHospedes
+    );
     setQuartosFiltrados(quartosFiltrados);
   };
 
@@ -151,7 +154,7 @@ const AcomodacaoPage = () => {
                       -
                     </BotaoControle>
                     <span>{adultos}</span>
-                    <BotaoControle onClick={() => setAdultos(adultos + 1)} >
+                    <BotaoControle onClick={() => setAdultos(adultos + 1)}>
                       +
                     </BotaoControle>
                   </Controles>
@@ -171,7 +174,7 @@ const AcomodacaoPage = () => {
                       -
                     </BotaoControle>
                     <span>{criancas}</span>
-                    <BotaoControle onClick={() => setCriancas(criancas + 1)} >
+                    <BotaoControle onClick={() => setCriancas(criancas + 1)}>
                       +
                     </BotaoControle>
                   </Controles>
@@ -191,13 +194,15 @@ const AcomodacaoPage = () => {
                       -
                     </BotaoControle>
                     <span>{bebes}</span>
-                    <BotaoControle onClick={() => setBebes(bebes + 1)} >
+                    <BotaoControle onClick={() => setBebes(bebes + 1)}>
                       +
                     </BotaoControle>
                   </Controles>
                 </Contador>
 
-                <BotaoConfirmar onClick={handleConfirmar}>Confirmar</BotaoConfirmar>
+                <BotaoConfirmar onClick={handleConfirmar}>
+                  Confirmar
+                </BotaoConfirmar>
               </MenuDropdown>
             )}
           </div>
@@ -205,11 +210,16 @@ const AcomodacaoPage = () => {
         <BotaoPesquisar onClick={handlePesquisar}>Pesquisar</BotaoPesquisar>
       </Container1>
 
-      <Section>
+      <Section> 
         {quartosFiltrados.map((acomodacao) => (
           <ContainerQuarto key={acomodacao.quartoId}>
             <ContainerImagem>
-              <Imagem src={imagensQuartos[`foto${acomodacao.caminhoImagem.slice(-1)}`] || imagensQuartos.foto1} />
+              <Imagem
+                src={
+                  imagensQuartos[`foto${acomodacao.caminhoImagem.slice(-1)}`] ||
+                  imagensQuartos.foto1
+                }
+              />
             </ContainerImagem>
             <ContainerFacilidades>
               <CardTitle>{acomodacao.quarto}</CardTitle>
@@ -218,9 +228,8 @@ const AcomodacaoPage = () => {
                   (key) =>
                     acomodacao.facilidades[key] && (
                       <li key={key}>
-                        {key
-                          .charAt(0)
-                          .toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
+                        {key.charAt(0).toUpperCase() +
+                          key.slice(1).replace(/([A-Z])/g, " $1")}
                       </li>
                     )
                 )}
