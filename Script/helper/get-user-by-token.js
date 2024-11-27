@@ -6,7 +6,7 @@ import { literal } from "sequelize";
 const getUserByToken = async (token) => {
   return new Promise(async (resolve, reject) => {
     if (!token) {
-      return res.status(401).json({ message: "Acesso negado" });
+      return reject({ status: 401, message: "Acesso negado" });
     }
 
     const decoded = jwt.verify(token, "SECRETKEYYPUA");
@@ -18,15 +18,16 @@ const getUserByToken = async (token) => {
         where: {
           id: usuarioId,
         },
-        attributes: [
-          'id',
-          'nome',
-        ]
+        attributes: {
+          exclude: ['senha'], // Exclui o campo 'senha'
+        }
       });
-        console.log(usuario);
+
+      console.log(usuario);
       if (!usuario) {
-        reject({ status: 404, message: "Usuário não encontrado" });
+        return reject({ status: 404, message: "Usuário não encontrado" });
       }
+
       resolve(usuario);
     } catch (error) {
       console.log(error);

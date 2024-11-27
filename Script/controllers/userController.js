@@ -6,8 +6,10 @@ import createUserToken from "../helper/create-user-token.js";
 import getToken from "../helper/get-token.js";
 import getUserByToken from "../helper/get-user-by-token.js";
 
+
+
 export const registerUser = async (req, res) => {
-  const { nome, email, senha } = req.body;
+  const { nome, nomeExibicao, email, senha, cpf, telefone, cargo, genero, endereco, dataNascimento } = req.body;
 
   try {
     const usuarioExistente = await Usuario.findOne({ where: { email } }); //! vai verificar se o email já existe no banco de dados
@@ -15,12 +17,19 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ error: "E-mail já cadastrado" });
     }
 
-    const senhaCrypt = await bcrypt.hash(senha, 10); //! senha criptografada / boas praticas de segurança
+    const senhaCrypt = await bcrypt.hash(senha, 10); //! senha criptografada / boas práticas de segurança
 
     const novoUsuario = {
       nome,
+      nomeExibicao,
       email,
       senha: senhaCrypt,
+      cpf,
+      telefone,
+      cargo,
+      genero,
+      endereco,
+      dataNascimento,
     };
 
     await Usuario.create(novoUsuario);
@@ -30,6 +39,7 @@ export const registerUser = async (req, res) => {
     res.status(500).json({ error: "Erro ao cadastrar usuário" });
   }
 };
+
 
 
 export const loginUser = async (req, res) => {
