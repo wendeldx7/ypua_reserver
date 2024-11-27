@@ -262,16 +262,16 @@ export const AvatarImage = styled.img`
 `;
 export const LargeContainer = styled.div`
   width: 100%; /* Largura de 100% */
-  height: 500px; /* Altura de 400px */
+  height: 600px; /* Altura de 400px */
   border-top: 3px solid #d8e2e8; /* Borda de 5px no topo */
-  margin-top: 400px;
-`;
+  margin-top: 500px;
+  `;
 
 export const Title = styled.div`
   position: absolute;
-  margin-top: 500px;
+  margin-top: 600px;
   top: -50px; /* Posiciona acima da borda superior */
-  left: 200px; /* Define a posição a 200px da esquerda */
+  left: 250px; /* Define a posição a 200px da esquerda */
   color: #461615; /* Cor preta */
   font-size: 18px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
@@ -280,7 +280,7 @@ export const Title = styled.div`
 
 export const Heading = styled.h1`
   position: absolute;
-  left: 200px;
+  left: 250px;
   font-size: 24px; /* Tamanho da fonte */
   font-weight: bold; /* Negrito */
   margin-top: 20px; /* Distância do topo */
