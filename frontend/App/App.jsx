@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/Perfil" element={<PaginaPerfil/>} />
         <Route path="/404" element={<Page404/>} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };
