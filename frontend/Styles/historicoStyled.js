@@ -46,6 +46,8 @@ export const Informacoes = styled.div`
 export const Titulo = styled.h1`
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 40px;
+  font-size: 25px;
 `;
 
 export const Mensagem = styled.p`
