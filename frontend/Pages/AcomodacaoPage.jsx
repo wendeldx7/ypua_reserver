@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import imagensQuartos from "../utils/imagensQuartos"; 
 import { useNavigate } from "react-router-dom"; // Importe o hook useNavigate
 import Foto02 from "../Image/FOTO02.png";
 import Cafe from "../Image/CAFE.png";
@@ -97,7 +98,7 @@ const AcomodacaoPage = () => {
 
   // Função para filtrar os quartos de acordo com a capacidade
   const filtrarQuartos = () => {
-    const numeroHospedes = adultos + criancas;
+    const numeroHospedes = adultos + criancas + bebes;
     const quartosFiltrados = acomodacoes.filter((quarto) => quarto.capacidade >= numeroHospedes);
     setQuartosFiltrados(quartosFiltrados);
   };
@@ -208,7 +209,7 @@ const AcomodacaoPage = () => {
         {quartosFiltrados.map((acomodacao) => (
           <ContainerQuarto key={acomodacao.quartoId}>
             <ContainerImagem>
-              <Imagem src={Foto02} />
+              <Imagem src={imagensQuartos[`foto${acomodacao.caminhoImagem.slice(-1)}`] || imagensQuartos.foto1} />
             </ContainerImagem>
             <ContainerFacilidades>
               <CardTitle>{acomodacao.quarto}</CardTitle>
