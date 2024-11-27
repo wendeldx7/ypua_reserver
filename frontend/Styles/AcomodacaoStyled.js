@@ -169,6 +169,12 @@ export const BotaoConfirmar = styled.button`
 export const ContainerTexto = styled.div`
 height:100%;
 width: 40%;
+  h2 {
+    font-size: 25px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Opcional: ajuste do peso da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens padrão, se necessário */
+  }
 
 `
 export const BarraLateral = styled.div`

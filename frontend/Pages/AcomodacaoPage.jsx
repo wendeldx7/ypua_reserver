@@ -109,7 +109,16 @@ const AcomodacaoPage = () => {
   return (
     <Container>
       <ContainerTitulo>
-        <h2>ESCOLHA AS ACOMODAÇÕES</h2>
+        <h2
+          style={{
+            fontSize: "25px",
+            fontWeight: "bold",
+            textAlign: "center",
+            margin: 0,
+          }}
+        >
+          Escolha as Acomodações
+        </h2>
       </ContainerTitulo>
 
       <Container1>
@@ -210,7 +219,7 @@ const AcomodacaoPage = () => {
         <BotaoPesquisar onClick={handlePesquisar}>Pesquisar</BotaoPesquisar>
       </Container1>
 
-      <Section> 
+      <Section>
         {quartosFiltrados.map((acomodacao) => (
           <ContainerQuarto key={acomodacao.quartoId}>
             <ContainerImagem>
