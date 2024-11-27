@@ -28,7 +28,7 @@ const NavBar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/checkIn" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/acomodacao" className={({ isActive }) => (isActive ? "active" : "")}>
             CHECK-IN
           </NavLink>
         </NavItem>
@@ -38,7 +38,7 @@ const NavBar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/painel" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
             PAINEL
           </NavLink>
         </NavItem>

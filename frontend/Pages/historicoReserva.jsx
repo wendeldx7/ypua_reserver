@@ -9,7 +9,7 @@ import {
   CabecalhoTabela,
   Informacoes,
   Titulo,
-  Mensagem,
+  Mensagem, 
   ContainerFiltro,
   Entrada
 } from "../Styles/historicoStyled.js";
@@ -134,7 +134,7 @@ const HistoricoDeReservas = () => {
         <Select
           options={nomesDosQuartos}
           value={quartoSelecionado}
-          onChange={setQuartoSelecionado} ar
+          onChange={setQuartoSelecionado}
           placeholder="Filtrar por acomodação"
           isClearable
           isSearchable={false}

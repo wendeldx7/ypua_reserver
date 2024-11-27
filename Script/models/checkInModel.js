@@ -44,7 +44,7 @@ const CheckIn = conn.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    nome: { // Novo campo para armazenar o nome da pessoa que fez a reserva
+    nome: { 
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -56,12 +56,11 @@ const CheckIn = conn.define(
   }
 );
 
-// Ajuste do relacionamento com chave estrangeira correta (quartoId)
 Quarto.hasMany(CheckIn, {
-  foreignKey: "quartoId", // Agora usamos "quartoId" como chave estrangeira
+  foreignKey: "quartoId", 
 });
 CheckIn.belongsTo(Quarto, {
-  foreignKey: "quartoId", // Agora usamos "quartoId" como chave estrangeira
+  foreignKey: "quartoId", 
 });
 
 export default CheckIn;

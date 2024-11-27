@@ -169,6 +169,12 @@ export const BotaoConfirmar = styled.button`
 export const ContainerTexto = styled.div`
 height:100%;
 width: 40%;
+  h2 {
+    font-size: 25px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Opcional: ajuste do peso da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens padrão, se necessário */
+  }
 
 `
 export const BarraLateral = styled.div`
@@ -194,18 +200,19 @@ export const ContainerTitulo = styled.div`
 `;
 
 export const Section = styled.section`
-  width: 90%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // 2 colunas
-  gap: 20px;
-  padding: 20px;
-  margin-top: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centraliza os itens */
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+  gap: 30px; /* Espaçamento entre os itens */
+  padding: 0 20px; /* Adiciona o padding nas laterais */
+  box-sizing: border-box;
 `;
 
 export const ContainerQuarto = styled.div`
+margin-top: 50px;
   display: flex;
-  width: 300px;
+  width: 300px; /* Faz com que 3 itens se alinhem por linha */
   height: 600px;
   flex-direction: column;
   justify-content: space-between;
@@ -214,6 +221,15 @@ export const ContainerQuarto = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  margin-bottom: 20px; /* Adiciona espaçamento entre as linhas */
+
+  @media (max-width: 900px) {
+    width: calc(50% - 20px); /* Para telas menores, coloca 2 itens por linha */
+  }
+
+  @media (max-width: 600px) {
+    width: 100%; /* Para telas muito pequenas, coloca 1 item por linha */
+  }
 `;
 
 export const ContainerFacilidades = styled.div`

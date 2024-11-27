@@ -37,7 +37,7 @@ const Quarto = conn.define(
     facilidades: {
       type: DataTypes.JSON,
     },
-    caminhoImagem: { // Novo campo para armazenar o nome da pessoa que fez a reserva
+    caminhoImagem: { 
       type: DataTypes.STRING,
       allowNull: false,
     },

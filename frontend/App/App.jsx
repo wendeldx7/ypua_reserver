@@ -19,6 +19,7 @@ import AcomodacaoPage from "../Pages/AcomodacaoPage";
 
 import PrivateRoute from "../Components/PrivateRoute";
 import HistoricoDeReservas from "../Pages/historicoReserva";
+import Page404 from "../Pages/Page404";
 
 
 const App = () => {
@@ -26,17 +27,18 @@ const App = () => {
     <BrowserRouter>
       <Routes>
       <Route path="/acomodacao" element={<Layout><AcomodacaoPage /></Layout>} />  
-
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
         <Route path="/check/:quartoId" element={<QuartoPage />} /> 
-        <Route path="/dashboard"element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
+        <Route path="/dashboard"element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>}/>
         <Route path="/historico" element={<Layout><HistoricoDeReservas /></Layout>} />
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
         <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
         <Route path="/Perfil" element={<PaginaPerfil/>} />
+        <Route path="/*" element={<Page404/>} />
       </Routes>
-      <Footer />
+      <Footer/>
+    
     </BrowserRouter>
   );
 };
