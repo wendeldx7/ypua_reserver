@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa o hook de navegação
 import { Container, Content, StyledLink } from './styles';
 import { FaTimes } from 'react-icons/fa';
 
@@ -11,8 +12,16 @@ import SairIcon from '../../Image/NavbarPerfil/sair.png';
 import SidebarItem from '../sidebaritem';
 
 const Sidebar = ({ active }) => {
+  const navigate = useNavigate(); // Hook para redirecionamento
+
   const closeSidebar = () => {
     active(false);
+  };
+
+  // Função de logout
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    navigate('/login'); // Redireciona para a página de login
   };
 
   return (
@@ -31,10 +40,10 @@ const Sidebar = ({ active }) => {
         <StyledLink to="/ajuda">
           <SidebarItem Icon={AjudaIcon} Text="Ajuda" />
         </StyledLink>
-        <StyledLink to="/sair">
+        {/* Substitua o StyledLink por um botão com a função handleLogout */}
+        <button onClick={handleLogout} style={{ all: 'unset', cursor: 'pointer' }}>
           <SidebarItem Icon={SairIcon} Text="Sair" />
-        </StyledLink>
-
+        </button>
       </Content>
     </Container>
   );
