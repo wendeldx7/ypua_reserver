@@ -19,7 +19,7 @@ const getUserByToken = async (token) => {
           id: usuarioId,
         },
         attributes: {
-          exclude: ['senha'], // Exclui o campo 'senha'
+          exclude: ['senha'], 
         }
       });
 
