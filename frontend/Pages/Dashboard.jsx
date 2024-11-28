@@ -73,7 +73,7 @@ const Grafico = styled.div`
   width: 100%;
   border-radius: 10px;
   background-color: #ffffff;
-  display: flex;
+  display: flex;:
   align-items: center;
   justify-content: center;
 `;
