@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Line, Doughnut } from 'react-chartjs-2';
@@ -48,7 +47,7 @@ const Card = styled.div`
   width: 48%;
   background-color: #ffffff;
   border-radius: 10px;
-  font-size:20px;
+  font-size
 `;
 const MiniCard = styled.div`
   height: 16%;
@@ -73,7 +72,7 @@ const Grafico = styled.div`
   width: 100%;
   border-radius: 10px;
   background-color: #ffffff;
-  display: flex;:
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
