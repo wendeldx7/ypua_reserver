@@ -1,7 +1,6 @@
 import CheckIn from "../models/checkInModel.js";
 import Quarto from "../models/hospedagemModel.js";
-import { Op } from "sequelize";
-
+import { Op, fn, col, literal } from "sequelize";
 export const createCheckIn = async (request, response) => {
   const { quartoId } = request.params;
   const { checkInData, checkOutData, adultos, criancas, bebes, nome } = request.body;
@@ -79,7 +78,7 @@ export const createCheckIn = async (request, response) => {
       include: [
         {
           model: Quarto,
-          attributes: ["quarto"], // Nome do quarto
+          attributes: ["quarto"], 
         },
       ],
     });
@@ -91,15 +90,6 @@ export const createCheckIn = async (request, response) => {
     return response.status(500).json({ message: "Erro ao processar a reserva." });
   }
 };
-
-
-
-
-
-
-
-
-
 
 export const getAllCheckIn = async (request, response) => {
   try {
@@ -193,3 +183,59 @@ export const deleteCheckIn = async (request, response) => {
     response.status(500).json({ error: error.message });
   }
 };
+export const getAnnualRevenueWithGuests = async (request, response) => {
+  const { year } = request.query;
+
+  try {
+    if (!year || isNaN(year) || year.length !== 4) {
+      return response.status(400).json({
+        message: "Por favor, forneça o ano no formato AAAA.",
+      });
+    }
+
+    const start = new Date(`${year}-01-01`);
+    const end = new Date(`${year}-12-31`);
+
+    const faturamentoAnualComHospedes = await CheckIn.findAll({
+      attributes: [
+        [fn("DATE_FORMAT", col("checkInData"), "%Y-%m"), "mes"],
+        [fn("SUM", col("precoTotal")), "faturamentoMensal"],
+        [fn("SUM", col("bebes")), "totalBebes"],
+        [fn("SUM", col("criancas")), "totalCriancas"],
+        [fn("SUM", col("adultos")), "totalAdultos"],
+      ],
+      where: {
+        checkInData: {
+          [Op.between]: [start, end],
+        },
+      },
+      group: [literal("mes")],
+      order: [[literal("mes"), "ASC"]],
+    });
+
+    // Buscar todos os quartos para incluir na resposta
+    const quartos = await Quarto.findAll({
+      attributes: ["quartoId", "quarto"], // Apenas ID e nome do quarto
+    });
+
+    // Se não houver dados de faturamento para o ano fornecido
+    if (!faturamentoAnualComHospedes.length) {
+      return response
+        .status(404)
+        .json({ message: "Nenhum dado encontrado para o ano fornecido." });
+    }
+
+    // Inclui o array de quartos no retorno
+    response.status(200).json({
+      faturamentoAnualComHospedes,
+      quartos: quartos.map((quarto) => ({
+        id: quarto.quartoId,
+        nome: quarto.quarto,
+      })),
+    });
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: error.message });
+  }
+};
+

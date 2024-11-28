@@ -47,7 +47,7 @@ const Card = styled.div`
   width: 48%;
   background-color: #ffffff;
   border-radius: 10px;
-  font-size:20px;
+  font-size
 `;
 const MiniCard = styled.div`
   height: 16%;

@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Biblioteca para realizar requisições HTTP
+import axios from 'axios';
 
 import {
   NavbarContainer,
-  NavbarButton,
-  NavLinks,
-  NavItem,
-  NavIcon,
-  LineSeparator,
-  NavText,
-  LogoImage,
-  RightIconsContainer,
-  IconImage,
   WelcomeContainer,
   WelcomeTitle,
   EmailText,
@@ -35,14 +26,6 @@ import {
   InputField,
   EditButton,
 } from "../Styles/PerfilStyled.js";
-import Logo from "../Image/logo.png";
-import Icon1 from "../Image/NavbarPerfil/ajuda.png";
-import Icon2 from "../Image/NavbarPerfil/calendario.png";
-import Icon3 from "../Image/NavbarPerfil/grafico.png";
-import Icon4 from "../Image/NavbarPerfil/local.png";
-import Icon5 from "../Image/NavbarPerfil/sair.png";
-import NotificationIcon from "../Image/notificacao.png";
-import ProfileIcon from "../Image/perfil.png";
 
 import Header from "../Components/header/index.jsx";
 
@@ -50,13 +33,12 @@ const NavbarLateral = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Hook para navegação
-  const [isOpen, setIsOpen] = useState(true);
-  const [avatar, setAvatar] = useState(null); // Estado para o avatar
+  const navigate = useNavigate();
+  const [avatar, setAvatar] = useState(null);
+
   useEffect(() => {
-    // Função para buscar as informações do usuário
     const fetchUserData = async () => {
-      const token = localStorage.getItem('token'); // Recupera o token do localStorage
+      const token = localStorage.getItem('token');
 
       if (!token) {
         setError('Usuário não autenticado.');
@@ -65,54 +47,54 @@ const NavbarLateral = () => {
       }
 
       try {
-        // Envia o token como parte do cabeçalho da requisição
         const response = await axios.get('http://localhost:3333/user', {
           headers: {
-            Authorization: `Bearer ${token}`, // Token enviado no cabeçalho
+            Authorization: `Bearer ${token}`,
           },
         });
 
-        setUserData(response.data); // Armazena os dados do usuário no estado
-        setLoading(false); // Finaliza o carregamento
+        setUserData(response.data);
+        setLoading(false);
       } catch (err) {
         setError('Erro ao carregar as informações do usuário.');
-        setLoading(false); // Finaliza o carregamento
+        setLoading(false);
       }
     };
 
-    fetchUserData(); // Chama a função de busca
+    fetchUserData();
   }, []);
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/login'); // Redireciona o usuário para a página de login
-  };
 
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-  
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
 
-  // Função para alterar o avatar
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setAvatar(reader.result); // Atualiza o avatar com a nova imagem
+        setAvatar(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
-console.log(userData)
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <Header />
+        <div style={{ textAlign: "center", marginTop: "20px", color: "red" }}>
+          {error}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-    <Header/>
-    <button onClick={handleLogout}>Sair</button>
+      <Header />
       <WelcomeContainer>
-        
         <WelcomeTitle>Boas Vindas</WelcomeTitle>
         <UserDetailsContainer>
           <EmailContainer>
@@ -143,7 +125,6 @@ console.log(userData)
 
       <LargeContainer>
         <Title>Conta</Title>
-        
         <Heading>Dados Pessoais</Heading>
         <InnerContainer>
           <LeftContainer>
@@ -213,7 +194,9 @@ console.log(userData)
               <InputField
                 id="dataNascimento"
                 type="date"
-                value={new Date(userData.dataNascimento).toISOString().split('T')[0]}
+                value={new Date(userData.dataNascimento)
+                  .toISOString()
+                  .split("T")[0]}
                 placeholder=" "
                 readOnly
               />
@@ -245,9 +228,7 @@ console.log(userData)
               <EditButton>Editar</EditButton>
             </DataContainer>
           </RightContainer>
-          
         </InnerContainer>
-        
       </LargeContainer>
     </>
   );

@@ -13,7 +13,7 @@ import PaginaPerfil from "../Pages/PerfilPage";
 import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
 import QuartoPage from "../Pages/QuartoPage";
-import AcomodacaoPage from "../Pages/AcomodacaoPage"; // Importando AcomodacaoPage
+import AcomodacaoPage from "../Pages/AcomodacaoPage"; 
 
 
 
@@ -27,7 +27,6 @@ const App = () => {
     <BrowserRouter>
       <Routes>
       <Route path="/acomodacao" element={<Layout><AcomodacaoPage /></Layout>} />  
-
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/login" element={<Login />} />
         <Route path="/check/:quartoId" element={<QuartoPage />} /> 
@@ -36,8 +35,9 @@ const App = () => {
         <Route path="/Reservas" element={<Layout><ReserverPage /></Layout>} />
         <Route path="/Checkin" element={<Layout><CheckInPage /></Layout>} />
         <Route path="/Perfil" element={<PaginaPerfil/>} />
-        <Route path="/404" element={<Page404/>} />
+        <Route path="/*" element={<Page404/>} />
       </Routes>
+      <Footer/>
     
     </BrowserRouter>
   );
