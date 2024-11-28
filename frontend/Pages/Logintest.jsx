@@ -11,7 +11,8 @@ import {
   BtnEntrar,
   WineContainer,
   NomeLogin,
-  TextoLogin
+
+  Form
 } from '../Styles/loginStyled';  
 
 const Login = () => {
@@ -43,7 +44,7 @@ const Login = () => {
       <LoginWrapper>
         <LoginForm>
           <NomeLogin>Faça login</NomeLogin>
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label>Email:</Label>
               <Input
@@ -51,7 +52,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="Digite seu e-mail"
+            
               />
             </FormGroup>
             <FormGroup>
@@ -61,16 +62,14 @@ const Login = () => {
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 required
-                placeholder="Digite sua senha"
+
               />
             </FormGroup>
             {erro && <ErrorMessage>{erro}</ErrorMessage>}
             <BtnEntrar type="submit">Entrar</BtnEntrar>
-          </form>
+          </Form>
         </LoginForm>
         <WineContainer>
-          <TextoLogin>Bem-vindo ao nosso portal!</TextoLogin>
-          <TextoLogin>Entre para acessar suas informações.</TextoLogin>
         </WineContainer>
       </LoginWrapper>
     </LoginContainer>

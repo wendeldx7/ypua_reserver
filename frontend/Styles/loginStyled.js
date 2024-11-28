@@ -4,6 +4,7 @@ import ImgLogin from "../Image/CarrosselHome/background3.png";
 export const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
+width: 100%;
   background-color: #EFF1F4;
   background-size: 400% 400%;
   font-family: Arial, sans-serif;
@@ -25,7 +26,7 @@ export const LoginContainer = styled.div`
 
 export const LoginWrapper = styled.div`
   display: flex;
-  width: 80%;
+  width: 50%;
   max-width: 1000px;
   background-color: #fff;
   border-radius: 15px;
@@ -46,11 +47,13 @@ export const LoginForm = styled.div`
 
 export const FormGroup = styled.div`
   margin-bottom: 15px;
+  width: 100%;
 `;
 
 export const Label = styled.label`
   display: block;
-  font-weight: bold;
+  color:#461615;
+
 `;
 
 export const Input = styled.input`
@@ -58,7 +61,7 @@ export const Input = styled.input`
   padding: 10px;
   margin-top: 5px;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid #461615;
   outline: none;
   font-size: 16px;
   background-color: transparent;
@@ -72,21 +75,32 @@ export const ErrorMessage = styled.p`
 `;
 
 export const BtnEntrar = styled.button`
-  background-color: #800000;
+  background-color: #461615;
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 15px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  margin-left: 30px;
-  margin-top: 50px;
+  
   width:200px;
 
   &:hover {
     background-color: #cc3333;
   }
+`;
+
+export const Form = styled.form`
+  padding: 10px;  
+  border: none;
+display: flex;
+flex-direction:column;
+justify-content: space-around;
+align-items:center;
+  cursor: pointer;
+  width:100%;
+  height: 80%;
 `;
 
 export const WineContainer = styled.div`
@@ -116,29 +130,12 @@ export const WineContainer = styled.div`
 
 export const NomeLogin = styled.div`
   font-size: 30px;
-  margin-bottom: 30px;
   position: relative;
   z-index: 1;
   color: black;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 50px;
+  color:#461615;
 `;
 
-export const TextoLogin = styled.div`
-  font-size: 20px;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-
-  text-shadow:
-    1px 1px 0px black,
-    -1px -1px 0px black,
-    1px -1px 0px black,
-    -1px 1px 0px black;
-`;
