@@ -21,6 +21,7 @@ const NavBar = () => {
       <LogoLink to="/"> {/* Não aninhe mais Links */}
         <img src={Logo} alt="Logo" />
       </LogoLink>
+      
       <Divlink>
         <NavItem>
           <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
