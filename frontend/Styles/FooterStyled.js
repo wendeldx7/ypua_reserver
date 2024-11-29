@@ -15,6 +15,7 @@ export const ContainerFooter = styled.footer`
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
   box-sizing: border-box;
+  margin-top:100px;
 `;
 
 export const FooterLogo = styled.img`
