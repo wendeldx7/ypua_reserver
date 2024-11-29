@@ -8,9 +8,6 @@ const createUserToken = (usuario, req, res) => {
       email: usuario.email,
     },
     "SECRETKEYYPUA",
-    {
-      expiresIn: "12h",
-    }
   );
 
   res.status(200).json({
