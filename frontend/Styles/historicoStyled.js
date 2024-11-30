@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  width: 100%;
-  flex-direction: column;
+  flex-direction: column; 
+  align-items: center; 
   min-height: 77vh;
   padding: 20px;
   font-family: Arial, sans-serif;
 `;
+
 
 export const ContainerCheckIn = styled.div`
   margin-bottom: 20px;
@@ -44,9 +45,10 @@ export const Informacoes = styled.div`
 `;
 
 export const Titulo = styled.h1`
+  color: #7e2726;
   text-align: center;
-  margin-bottom: 20px;
   margin-top: 40px;
+  margin-bottom: 40px;
   font-size: 25px;
 `;
 
@@ -56,13 +58,13 @@ export const Mensagem = styled.p`
 `;
 
 export const ContainerFiltro = styled.div`
-  height: 100px;
-  width: 100%;
+  height: 80px;
+  width: 90%;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2);
   margin-bottom: 20px;
   display: flex;
-  gap: 10px;
+  gap: 60px;
   justify-content: center;
   align-items: center;
   border-radius: 7px;
@@ -71,9 +73,10 @@ export const ContainerFiltro = styled.div`
 export const Entrada = styled.input`
   width: 15%;
   font-size: 14px;
-  height: 70%;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
+  box-shadow: 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2);
 `;

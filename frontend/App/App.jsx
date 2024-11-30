@@ -7,7 +7,6 @@ import Footer from "../Components/Footer";
 
 import ReserverPage from "../Pages/ReserverPage";
 import HomePage from "../Pages/HomePage";
-import CheckInPage from "../Pages/CheckinPage";
 import PaginaPerfil from "../Pages/PerfilPage";
 import Login from "../Pages/logintest";
 import Dashboard from "../Pages/Dashboard";
@@ -31,7 +30,6 @@ const App = () => {
         <Route path="/dashboard" element={<PrivateRoute><Layout><Dashboard /></Layout></PrivateRoute>} />
         <Route path="/historico" element={<PrivateRoute><Layout><HistoricoDeReservas /></Layout></PrivateRoute>} />
         <Route path="/Reservas" element={<PrivateRoute><Layout><ReserverPage /></Layout></PrivateRoute>} />
-        <Route path="/Checkin" element={<PrivateRoute><Layout><CheckInPage /></Layout></PrivateRoute>} />
         <Route path="/Perfil" element={<PrivateRoute><PaginaPerfil /></PrivateRoute>} />
         <Route path="/Suporte" element={<PrivateRoute><Layout><SuportePage /></Layout></PrivateRoute>} />
       </Routes>
