@@ -13,7 +13,7 @@ import {
   NomeLogin,
 
   Form
-} from '../Styles/loginStyled';  
+} from '../Styles/loginStyled';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
 
 
-      window.location.href = '/dashboard'; 
+      window.location.href = '/dashboard';
     } catch (err) {
       setErro('Erro ao realizar o login. Verifique suas credenciais.');
     }
@@ -52,7 +52,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-            
+
               />
             </FormGroup>
             <FormGroup>

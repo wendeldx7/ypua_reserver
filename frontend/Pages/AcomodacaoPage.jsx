@@ -124,7 +124,7 @@ const AcomodacaoPage = () => {
       <Container1>
         <ContainerFiltro>
           <ContainerInput>
-            <Label htmlFor="">ENTRADA</Label>
+            <Label htmlFor="">Entrada</Label>
             <Input
               type="date"
               value={dataEntrada}
@@ -133,7 +133,7 @@ const AcomodacaoPage = () => {
           </ContainerInput>
           <BarraLateral />
           <ContainerInput>
-            <Label htmlFor="">SAÍDA</Label>
+            <Label htmlFor="">Saída</Label>
             <Input
               type="date"
               value={dataSaida}
@@ -149,7 +149,7 @@ const AcomodacaoPage = () => {
 
             {dropdownAberto && (
               <MenuDropdown>
-                {/* Adultos */}
+
                 <Contador>
                   <ContainerTexto>
                     <LabelContador>Adultos</LabelContador>
@@ -169,7 +169,7 @@ const AcomodacaoPage = () => {
                   </Controles>
                 </Contador>
 
-                {/* Crianças */}
+
                 <Contador>
                   <ContainerTexto>
                     <LabelContador>Crianças</LabelContador>
@@ -189,7 +189,7 @@ const AcomodacaoPage = () => {
                   </Controles>
                 </Contador>
 
-                {/* Bebês */}
+
                 <Contador>
                   <ContainerTexto>
                     <LabelContador>Bebês</LabelContador>
