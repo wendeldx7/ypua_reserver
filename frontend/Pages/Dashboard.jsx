@@ -16,12 +16,12 @@ const dadosExemplo = {
 };
 
 const dadosExemplos = {
-  acom1: 30, // Número de reservas para a acomodação 1
-  acom2: 28, // Número de reservas para a acomodação 2
-  acom3: 35, // Número de reservas para a acomodação 3
-  acom4: 40, // Número de reservas para a acomodação 4
-  acom5: 32, // Número de reservas para a acomodação 5
-  acom6: 25, // Número de reservas para a acomodação 6
+  acom1: 30,
+  acom2: 28, 
+  acom3: 35,
+  acom4: 40,
+  acom5: 32,
+  acom6: 25,
 };
 
 const Container = styled.div`
@@ -47,13 +47,23 @@ const Card = styled.div`
   width: 48%;
   background-color: #ffffff;
   border-radius: 10px;
-  font-size
-`;
+  font-size:30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
+  flex-direction:column;
+
+  `;
 const MiniCard = styled.div`
   height: 16%;
   width: 48%;
   background-color: #ffffff;
   border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
+  flex-direction:column;
+  color:#FFFFFF;
 `;
 
 const Section2 = styled.section`
@@ -103,10 +113,9 @@ const Input = styled.input`
   cursor: pointer; 
 
   &:checked {
-    appearance: none; /* Remove o estilo padrão */
-    background-color: #461615; /* Cor de fundo quando selecionado */
-    border-radius: 50%; /* Mantém o formato circular */
-    width: 13px; 
+    appearance: none; 
+    background-color: #461615;
+    border-radius: 50%; 
     height: 13px;
     display: inline-block;
     position: relative;
@@ -121,13 +130,17 @@ justify-content:center;
 font-size:14px;
 `
 
+const H1 = styled.h1`
+font-size:40px;
+`
+
 
 
 const Dashboard = () => {
-  const [metric, setMetric] = useState('taxaOcupacao'); // Métrica selecionada
+  const [metric, setMetric] = useState('taxaOcupacao');
 
   const data = {
-    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], // Meses
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], 
     datasets: [
       {
         label: `Métrica: ${metric}`,
@@ -138,9 +151,8 @@ const Dashboard = () => {
       },
     ],
   };
-  // Dados para o gráfico de rosca (doughnut chart)
   const dataPizza = {
-    labels: ['Acom1', 'Acom2', 'Acom3', 'Acom4', 'Acom5', 'Acom6'], // Nomes das acomodações
+    labels: ['Acom1', 'Acom2', 'Acom3', 'Acom4', 'Acom5', 'Acom6'], 
     datasets: [
       {
         data: [
@@ -151,7 +163,7 @@ const Dashboard = () => {
           dadosExemplos.acom5,
           dadosExemplos.acom6,
         ],
-        backgroundColor: ['#461615', '#2A3D66', '#F4A300', '#4F9D8B', '#D1B26F', '#C4A3D1'], // Cores neutras e viva
+        backgroundColor: ['#461615', '#2A3D66', '#F4A300', '#4F9D8B', '#D1B26F', '#C4A3D1'], 
         borderColor: '#ffffff',
         borderWidth: 1,
       },
@@ -161,14 +173,12 @@ const Dashboard = () => {
   return (
     <Container>
       <Section1>
-        <Card  style={{backgroundColor:"#461615", color:"#FFFFFF"}}>Faturamento do mês: R${dadosExemplo.faturamento[0]}</Card>
-        <Card></Card>
+        <Card  style={{backgroundColor:"#461615", color:"#FFFFFF"}}><h3>Faturamento do mês:</h3> <H1>R${dadosExemplo.faturamento[0]}</H1> </Card>
+        <Card  style={{color:"#461615"}}><h3>Taxa de ocupação:</h3> <H1>35%</H1></Card>
         <Grafico>
-          {/* Gráfico de linha */}
           <Line data={data} />
         </Grafico>
         <ContainerOpcoes>
-          {/* Botões de seleção */}
           <Label>
             <Input
               type="radio"
@@ -213,28 +223,25 @@ const Dashboard = () => {
       </Section1>
       <Section2>
       <GraficoPizza>
-          {/* Gráfico de rosca com imagem no centro */}
           <Doughnut data={dataPizza} />
-          {/* Imagem centralizada no gráfico */}
           <img
-            src={Logo} // Substitua com a URL da sua imagem
+            src={Logo} 
             alt="Logo"
             style={{
               position: 'absolute',
               marginTop:'50px',
               marginRight:'10px',
-              width: '80px', // Tamanho da imagem
-              height: '80px', // Tamanho da imagem
+              width: '80px', 
+              height: '80px',
               zIndex: 10,
-              // Para garantir que a imagem fique acima do gráfico
             }}
           />
           
         </GraficoPizza>
-        <MiniCard style={{backgroundColor:"#461615"}}></MiniCard>
-        <MiniCard></MiniCard>
-        <MiniCard></MiniCard>
-        <MiniCard></MiniCard>
+        <MiniCard style={{backgroundColor:"#461615"}}><h3>Total Adultos</h3> <H1>3432</H1></MiniCard>
+        <MiniCard style={{color:"#461615"}}><h3>Total Reservas</h3> <H1>2473</H1></MiniCard>
+        <MiniCard style={{color:"#461615"}}><h3>Total Crianças</h3> <H1>674</H1></MiniCard>
+        <MiniCard style={{color:"#461615"}}><h3>Total funcionários</h3> <H1>24</H1></MiniCard>
       </Section2>
     </Container>
   );
