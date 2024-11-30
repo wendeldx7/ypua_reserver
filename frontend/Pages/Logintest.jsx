@@ -11,10 +11,10 @@ import {
   BtnEntrar,
   WineContainer,
   NomeLogin,
-
-  Form
+  Form,
+  CadastroLink, 
 } from '../Styles/loginStyled';
-
+import { Link } from 'react-router-dom'; 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -29,9 +29,7 @@ const Login = () => {
         senha,
       });
 
-
       localStorage.setItem('token', response.data.token);
-
 
       window.location.href = '/dashboard';
     } catch (err) {
@@ -52,7 +50,6 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-
               />
             </FormGroup>
             <FormGroup>
@@ -62,15 +59,17 @@ const Login = () => {
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 required
-
               />
+              {/* Novo texto de "Fazer cadastro" */}
+              <CadastroLink>
+                Não tem uma conta? <Link to="/cadastro">Fazer cadastro</Link>
+              </CadastroLink>
             </FormGroup>
             {erro && <ErrorMessage>{erro}</ErrorMessage>}
             <BtnEntrar type="submit">Entrar</BtnEntrar>
           </Form>
         </LoginForm>
-        <WineContainer>
-        </WineContainer>
+        <WineContainer></WineContainer>
       </LoginWrapper>
     </LoginContainer>
   );

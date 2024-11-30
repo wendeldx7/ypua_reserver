@@ -139,3 +139,18 @@ export const NomeLogin = styled.div`
   color:#461615;
 `;
 
+export const CadastroLink = styled.div`
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: right;
+  color: #461615;
+
+  a {
+    color: #461615;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
