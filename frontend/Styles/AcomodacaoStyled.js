@@ -12,8 +12,8 @@ export const Container= styled.div`
 
 
 export const Container1 = styled.div`
-  height: 10vh;
-  width: 90%;
+  height: 80px;
+  width: 80%;
   background-color: #ffffff;
   box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
@@ -22,7 +22,7 @@ export const Container1 = styled.div`
   align-items: center;
   padding: 0 28px 0 28px;
 `;
-
+    
 export const Input = styled.input`
   height: 100%;
   width: 22vh;
@@ -37,25 +37,28 @@ export const Input = styled.input`
 `;
 
 export const ContainerInput = styled.div`
-  height: 100%;
-  width: 22vh;
+  height: 60px;
+  width: 200px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   font-size: 17px;
   border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
 `;
 
 export const Label = styled.label`
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-size: 15px;
+    font-weight: 400;
+    
+
 `;
 
 export const BotaoPesquisar = styled.button`
-  height: 65px;
-  width: 272px;
+  height: 60px;
+  width: 20%;
   padding: 0 20px;
   color:#FFFFFF;
   background-color: #461615;
@@ -72,16 +75,16 @@ export const BotaoPesquisar = styled.button`
   }
 `;
 export const BotaoFiltrar = styled.button`
-  height: 50px;
-  width: 272px;
-  padding: 0 20px;
+  height: 60px;
+  width: 270px;
+  padding: 0 20px;  
   background-color: #FFFFFF;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2);
   font-size: 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  opacity: 88%;
+
   font-weight: 400;
 
   &:hover {
@@ -190,13 +193,11 @@ justify-content:space-around;
 `
 
 export const ContainerTitulo = styled.div`
-  height: auto;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  color: #7e2726;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 25px;
 `;
 
 export const Section = styled.section`

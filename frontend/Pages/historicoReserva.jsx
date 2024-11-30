@@ -18,11 +18,13 @@ const estilosPersonalizados = {
   control: (provided) => ({
     ...provided,
     width: '100%',
+    height: '60px',
     innerHeight: '100px',
     padding: '5px',
     borderRadius: '8px',
     border: 'none',
-    boxShadow: 'none',
+    boxShadow: ' 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2)',
+
     '&:hover': {
       borderColor: '#461615',
     },
@@ -30,13 +32,13 @@ const estilosPersonalizados = {
   menu: (provided) => ({
     ...provided,
     borderRadius: '8px',
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+    boxShadow: ' 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2)',
   }),
   option: (provided, state) => ({
     ...provided,
     padding: '10px',
     backgroundColor: state.isSelected ? '#461615' : state.isFocused ? '#e9f0f7' : '#fff',
-    color: state.isSelected ? '#fff' : '#333333',
+    color: state.isSelected ? '#fff' : '#333333',    boxShadow: ' 0px 4px 6px rgba(0.2, 0.2, 0.2, 0.2)',
     cursor: 'pointer',
     '&:hover': {
       backgroundColor: '#461615',
