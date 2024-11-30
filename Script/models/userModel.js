@@ -59,3 +59,5 @@ const Usuario = conn.define(
 );
 
 export default Usuario;
+
+

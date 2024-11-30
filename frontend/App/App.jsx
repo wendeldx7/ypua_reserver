@@ -8,7 +8,7 @@ import Footer from "../Components/Footer";
 import ReserverPage from "../Pages/ReserverPage";
 import HomePage from "../Pages/HomePage";
 import PaginaPerfil from "../Pages/PerfilPage";
-import Login from "../Pages/logintest";
+import Login from "../Pages/Logintest";
 import Dashboard from "../Pages/Dashboard";
 import QuartoPage from "../Pages/QuartoPage";
 import AcomodacaoPage from "../Pages/AcomodacaoPage";
@@ -17,11 +17,14 @@ import PrivateRoute from "../Components/PrivateRoute";
 import HistoricoDeReservas from "../Pages/historicoReserva";
 import Page404 from "../Pages/Page404";
 
+import Cadastro from "../Pages/CadastroPage"
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Layout><Login/></Layout>} />
+        <Route path="/Cadastro" element={<Layout><Cadastro/></Layout>} />
         <Route path="/*" element={<Layout><Page404 /></Layout>} />
         
         <Route path="/" element={<PrivateRoute><Layout><HomePage /></Layout></PrivateRoute>} />
